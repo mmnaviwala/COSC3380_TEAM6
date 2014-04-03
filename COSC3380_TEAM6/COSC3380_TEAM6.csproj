@@ -119,6 +119,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CrimeReport.cs" />
+    <Compile Include="Models\Criminal.cs" />
     <Compile Include="Models\Officer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
