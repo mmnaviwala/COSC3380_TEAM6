@@ -6,6 +6,7 @@ namespace CriminalDatabase.Models
 {
     public class CrimeReport
     {
+        [StringLength(6)]
         public int crime_report_id { get; set; }
         [StringLength(6)]
         public string criminal_id { get; set; }
