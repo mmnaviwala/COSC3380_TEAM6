@@ -15,77 +15,77 @@
         <h4>CrimeReport</h4>
         <hr />
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.crimereportID)
+        @Html.HiddenFor(model => model.CrimereportID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.criminal_id, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CriminalID, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.criminal_id)
-                @Html.ValidationMessageFor(model => model.criminal_id)
+                @Html.EditorFor(model => model.CriminalID)
+                @Html.ValidationMessageFor(model => model.CriminalID)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.officer_id, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OfficerID, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.officer_id)
-                @Html.ValidationMessageFor(model => model.officer_id)
+                @Html.EditorFor(model => model.OfficerID)
+                @Html.ValidationMessageFor(model => model.OfficerID)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.case_number, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CaseNumber, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.case_number)
-                @Html.ValidationMessageFor(model => model.case_number)
+                @Html.EditorFor(model => model.CaseNumber)
+                @Html.ValidationMessageFor(model => model.CaseNumber)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.suspect, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Suspect, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.suspect)
-                @Html.ValidationMessageFor(model => model.suspect)
+                @Html.EditorFor(model => model.Suspect)
+                @Html.ValidationMessageFor(model => model.Suspect)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.offense_type, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OffenseType, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.offense_type)
-                @Html.ValidationMessageFor(model => model.offense_type)
+                @Html.EditorFor(model => model.OffenseType)
+                @Html.ValidationMessageFor(model => model.OffenseType)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.offense_date, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OffenseDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.offense_date)
-                @Html.ValidationMessageFor(model => model.offense_date)
+                @Html.EditorFor(model => model.OffenseDate)
+                @Html.ValidationMessageFor(model => model.OffenseDate)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.admitted_date, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AdmittedDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.admitted_date)
-                @Html.ValidationMessageFor(model => model.admitted_date)
+                @Html.EditorFor(model => model.AdmittedDate)
+                @Html.ValidationMessageFor(model => model.AdmittedDate)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.prison_agency, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PrisonAgency, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.prison_agency)
-                @Html.ValidationMessageFor(model => model.prison_agency)
+                @Html.EditorFor(model => model.PrisonAgency)
+                @Html.ValidationMessageFor(model => model.PrisonAgency)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.time, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Time, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.time)
-                @Html.ValidationMessageFor(model => model.time)
+                @Html.EditorFor(model => model.Time)
+                @Html.ValidationMessageFor(model => model.Time)
             </div>
         </div>
 

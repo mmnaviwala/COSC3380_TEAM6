@@ -11,13 +11,14 @@ namespace Team6.DAL
     {
         protected override void Seed(Team6Context context)
         {
-            /*
+            
             var officers = new List<Officer>
             {
-                new Officer{BadgeNumber=001,FirstName="John",LastName="Doe",UserName="jdoe",Password="password",PhoneNumber=123,Email="john@doe.com",Ssn=123456789,EyeColor=1,Feet=6,Inches=10,Gender=2},
+                //new Officer{BadgeNumber=001,FirstName="John",LastName="Doe",UserName="jdoe",Password="password",PhoneNumber=123,Email="john@doe.com",Ssn=123456789,EyeColor=1,Feet=6,Inches=10,Gender=2},
                 new Officer{FirstName="Smith",LastName="Brown"}
             };
 
+             /*
             officers.ForEach(s => context.Officers.Add(s));
             context.SaveChanges();
 

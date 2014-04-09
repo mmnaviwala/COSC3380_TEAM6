@@ -47,7 +47,7 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="officerID,badge_number,rank,first_name,last_name,user_name,paswerd,phone_number,email,ssn,eye_color,feet,inches,gender")] Officer officer)
+        public ActionResult Create([Bind(Include="OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="officerID,badge_number,rank,first_name,last_name,user_name,paswerd,phone_number,email,ssn,eye_color,feet,inches,gender")] Officer officer)
+        public ActionResult Edit([Bind(Include="OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer)
         {
             if (ModelState.IsValid)
             {

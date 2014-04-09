@@ -47,7 +47,7 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="criminalID,first_name,last_name,eye_color,weight,feet,inches,gender,ssn,alias,hair_color,known_affiliates,date_of_birth,race,address,state,zip_code,phone_number,misc")] Criminal criminal)
+        public ActionResult Create([Bind(Include="CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="criminalID,first_name,last_name,eye_color,weight,feet,inches,gender,ssn,alias,hair_color,known_affiliates,date_of_birth,race,address,state,zip_code,phone_number,misc")] Criminal criminal)
+        public ActionResult Edit([Bind(Include="CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal)
         {
             if (ModelState.IsValid)
             {

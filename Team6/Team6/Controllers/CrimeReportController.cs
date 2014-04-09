@@ -47,7 +47,7 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="crimereportID,criminal_id,officer_id,case_number,suspect,offense_type,offense_date,admitted_date,prison_agency,time")] CrimeReport crimereport)
+        public ActionResult Create([Bind(Include="CrimereportID,CriminalID,OfficerID,CaseNumber,Suspect,OffenseType,OffenseDate,AdmittedDate,PrisonAgency,Time")] CrimeReport crimereport)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="crimereportID,criminal_id,officer_id,case_number,suspect,offense_type,offense_date,admitted_date,prison_agency,time")] CrimeReport crimereport)
+        public ActionResult Edit([Bind(Include="CrimereportID,CriminalID,OfficerID,CaseNumber,Suspect,OffenseType,OffenseDate,AdmittedDate,PrisonAgency,Time")] CrimeReport crimereport)
         {
             if (ModelState.IsValid)
             {

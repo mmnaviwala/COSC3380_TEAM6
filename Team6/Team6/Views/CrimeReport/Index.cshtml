@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Crime Report Index</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,31 +12,31 @@
 <table class="table">
     <tr>
         <th>
-            Criminal ID
+            @Html.DisplayNameFor(model => model.CriminalID)
         </th>
         <th>
-            Officer ID
+            @Html.DisplayNameFor(model => model.OfficerID)
         </th>
         <th>
-            Case Number
+            @Html.DisplayNameFor(model => model.CaseNumber)
         </th>
         <th>
-            Suspect
+            @Html.DisplayNameFor(model => model.Suspect)
         </th>
         <th>
-            Offense Type
+            @Html.DisplayNameFor(model => model.OffenseType)
         </th>
         <th>
-            Offense Date
+            @Html.DisplayNameFor(model => model.OffenseDate)
         </th>
         <th>
-            Admitted Date
+            @Html.DisplayNameFor(model => model.AdmittedDate)
         </th>
         <th>
-            Prison Agency
+            @Html.DisplayNameFor(model => model.PrisonAgency)
         </th>
         <th>
-            Time
+            @Html.DisplayNameFor(model => model.Time)
         </th>
         <th></th>
     </tr>
@@ -44,36 +44,36 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.criminal_id)
+            @Html.DisplayFor(modelItem => item.CriminalID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.officer_id)
+            @Html.DisplayFor(modelItem => item.OfficerID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.case_number)
+            @Html.DisplayFor(modelItem => item.CaseNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.suspect)
+            @Html.DisplayFor(modelItem => item.Suspect)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.offense_type)
+            @Html.DisplayFor(modelItem => item.OffenseType)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.offense_date)
+            @Html.DisplayFor(modelItem => item.OffenseDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.admitted_date)
+            @Html.DisplayFor(modelItem => item.AdmittedDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.prison_agency)
+            @Html.DisplayFor(modelItem => item.PrisonAgency)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.time)
+            @Html.DisplayFor(modelItem => item.Time)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.crimereportID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.crimereportID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.crimereportID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.CrimereportID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CrimereportID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CrimereportID })
         </td>
     </tr>
 }

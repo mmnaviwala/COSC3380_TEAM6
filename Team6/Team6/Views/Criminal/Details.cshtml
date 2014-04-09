@@ -11,139 +11,131 @@
 	<hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.first_name)
+            @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.first_name)
+            @Html.DisplayFor(model => model.FirstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.last_name)
+            @Html.DisplayNameFor(model => model.LastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.last_name)
+            @Html.DisplayFor(model => model.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.eye_color)
+            @Html.DisplayNameFor(model => model.EyeColor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.eye_color)
+            @Html.DisplayFor(model => model.EyeColor)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.weight)
+            @Html.DisplayNameFor(model => model.Weight)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.weight)
+            @Html.DisplayFor(model => model.Weight)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.feet)
+            @Html.DisplayNameFor(model => model.Height)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.feet)
+            @Html.DisplayFor(model => model.Height)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.inches)
+            @Html.DisplayNameFor(model => model.Gender)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.inches)
+            @Html.DisplayFor(model => model.Gender)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.gender)
+            @Html.DisplayNameFor(model => model.Ssn)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.gender)
+            @Html.DisplayFor(model => model.Ssn)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ssn)
+            @Html.DisplayNameFor(model => model.Alias)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ssn)
+            @Html.DisplayFor(model => model.Alias)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.alias)
+            @Html.DisplayNameFor(model => model.HairColor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.alias)
+            @Html.DisplayFor(model => model.HairColor)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.hair_color)
+            @Html.DisplayNameFor(model => model.KnownAffiliates)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.hair_color)
+            @Html.DisplayFor(model => model.KnownAffiliates)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.known_affiliates)
+            @Html.DisplayNameFor(model => model.DateOfBirth)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.known_affiliates)
+            @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.date_of_birth)
+            @Html.DisplayNameFor(model => model.Race)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.date_of_birth)
+            @Html.DisplayFor(model => model.Race)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.race)
+            @Html.DisplayNameFor(model => model.Address)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.race)
+            @Html.DisplayFor(model => model.Address)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.address)
+            @Html.DisplayNameFor(model => model.State)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.address)
+            @Html.DisplayFor(model => model.State)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.state)
+            @Html.DisplayNameFor(model => model.ZipCode)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.state)
+            @Html.DisplayFor(model => model.ZipCode)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.zip_code)
+            @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.zip_code)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.phone_number)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.phone_number)
+            @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
 
         <dt>
@@ -157,6 +149,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.criminalID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CriminalID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

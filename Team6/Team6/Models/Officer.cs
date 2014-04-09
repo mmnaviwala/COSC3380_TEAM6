@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.EnterpriseServices;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -23,16 +22,6 @@ namespace Team6.Models
         Inspector,
         Colonel,
         Major
-    }
-
-    public enum EyeColor
-    {
-        Amber, Blue, Brown, Gray, Green, Hazel
-    }
-
-    public enum Gender
-    {
-        Male, Female
     }
 
     public class Officer
