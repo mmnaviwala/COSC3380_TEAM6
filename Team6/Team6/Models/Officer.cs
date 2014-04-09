@@ -1,16 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 
 namespace Team6.Models
 {
+    public enum Rank
+    {
+        [Description("Chief of police")]
+        ChiefOfPolice,
+        [Description("Assistant Chief")]
+        AssistantChief,
+        [Description("Deputy Chief")]
+        DeputyChief,
+        Captain,
+        Lieutenant,
+        Sergeant,
+        Detective,
+        Officer,
+        Inspector,
+        Colonel,
+        Major
+    }
+
+    public enum EyeColor
+    {
+        Amber, Blue, Brown, Gray, Green, Hazel
+    }
+
+    public enum Gender
+    {
+        Male, Female
+    }
+
     public class Officer
     {
         public int OfficerID { get; set; }
         public int BadgeNumber { get; set; }
-        public int Rank { get; set; }
+        public Rank? Rank { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }
@@ -18,9 +47,9 @@ namespace Team6.Models
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
         public int Ssn { get; set; }
-        public int EyeColor { get; set; }
+        public EyeColor? EyeColor { get; set; }
         public int Feet { get; set; }
         public int Inches { get; set; }
-        public int Gender { get; set; }
+        public Gender? Gender { get; set; }
     }
 }
