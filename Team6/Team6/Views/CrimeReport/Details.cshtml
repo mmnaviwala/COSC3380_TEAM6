@@ -1,0 +1,90 @@
+﻿@model Team6.Models.CrimeReport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CrimeReport</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.criminal_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.criminal_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.officer_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.officer_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.case_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.case_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suspect)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suspect)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offense_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offense_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offense_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offense_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admitted_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admitted_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prison_agency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prison_agency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.crimereportID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

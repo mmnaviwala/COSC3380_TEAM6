@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Team6.Models.CrimeReport>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Crime Report Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Criminal ID
+        </th>
+        <th>
+            Officer ID
+        </th>
+        <th>
+            Case Number
+        </th>
+        <th>
+            Suspect
+        </th>
+        <th>
+            Offense Type
+        </th>
+        <th>
+            Offense Date
+        </th>
+        <th>
+            Admitted Date
+        </th>
+        <th>
+            Prison Agency
+        </th>
+        <th>
+            Time
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.criminal_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.officer_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.case_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.suspect)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offense_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offense_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.admitted_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prison_agency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.crimereportID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.crimereportID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.crimereportID })
+        </td>
+    </tr>
+}
+
+</table>

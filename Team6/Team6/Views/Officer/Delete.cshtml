@@ -1,0 +1,128 @@
+﻿@model Team6.Models.Officer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Officer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.badge_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.badge_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.first_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.first_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paswerd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paswerd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eye_color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eye_color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.feet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.feet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inches)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inches)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

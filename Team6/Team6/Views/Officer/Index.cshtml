@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Team6.Models.Officer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Officer Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Badge Number
+        </th>
+        <th>
+            Rank
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            User Name
+        </th>
+        <th>
+            Phone Number
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            SSN
+        </th>
+        <th>
+            Eye Color
+        </th>
+        <th>
+            Feet
+        </th>
+        <th>
+            Inches
+        </th>
+        <th>
+            Gender
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.badge_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paswerd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ssn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eye_color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.feet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inches)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.officerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.officerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.officerID })
+        </td>
+    </tr>
+}
+
+</table>

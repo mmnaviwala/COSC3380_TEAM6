@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Team6.Models.Criminal>
+
+@{
+    ViewBag.Title = "Criminal Index";
+}
+
+<h2>Criminal Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Eye Color
+        </th>
+        <th>
+            Weight
+        </th>
+        <th>
+            Feet
+        </th>
+        <th>
+            Inches
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            SSN
+        </th>
+        <th>
+            Alias
+        </th>
+        <th>
+            Hair Color
+        </th>
+        <th>
+            Known Affiliates
+        </th>
+        <th>
+            Date Of Birth
+        </th>
+        <th>
+            Race
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            Zip Code
+        </th>
+        <th>
+            Phone Number
+        </th>
+        <th>
+            Misc
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eye_color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.feet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inches)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ssn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hair_color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.known_affiliates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_of_birth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.race)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zip_code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.misc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.criminalID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.criminalID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.criminalID })
+        </td>
+    </tr>
+}
+
+</table>

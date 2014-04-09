@@ -1,0 +1,122 @@
+﻿@model Team6.Models.Officer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Officer</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.badge_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.badge_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.first_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.first_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paswerd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paswerd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eye_color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eye_color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.feet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.feet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inches)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inches)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.officerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
