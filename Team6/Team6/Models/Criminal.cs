@@ -8,24 +8,24 @@ namespace Team6.Models
 {
     public class Criminal
     {
-        public int criminalID { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public int eye_color { get; set; }
-        public int weight { get; set; }
-        public int feet { get; set; }
-        public int inches { get; set; }
-        public int gender { get; set; }
-        public int ssn { get; set; }
-        public string alias { get; set; }
-        public int hair_color { get; set; }
-        public string known_affiliates { get; set; }
-        public DateTime date_of_birth { get; set; }
-        public int race { get; set; }
-        public string address { get; set; }
-        public int state { get; set; }
-        public int zip_code { get; set; }
-        public int phone_number { get; set; }
+        public int CriminalID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int EyeColor { get; set; }
+        public int Weight { get; set; }
+        public int Feet { get; set; }
+        public int Inches { get; set; }
+        public int Gender { get; set; }
+        public int Ssn { get; set; }
+        public string Alias { get; set; }
+        public int HairColor { get; set; }
+        public string KnownAffiliates { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public int Race { get; set; }
+        public string Address { get; set; }
+        public int State { get; set; }
+        public int ZipCode { get; set; }
+        public int PhoneNumber { get; set; }
         public string misc { get; set; }
     }
 }

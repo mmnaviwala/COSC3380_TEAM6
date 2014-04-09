@@ -13,8 +13,8 @@ namespace Team6.DAL
         {
             var officers = new List<Officer>
             {
-                new Officer{badge_number=001,first_name="John",last_name="Doe",user_name="jdoe",paswerd="password",phone_number=123,email="john@doe.com",ssn=123456789,eye_color=1,feet=6,inches=10,gender=2},
-                new Officer{first_name="Smith",last_name="Brown"}
+                new Officer{BadgeNumber=001,FirstName="John",LastName="Doe",UserName="jdoe",Password="password",PhoneNumber=123,Email="john@doe.com",Ssn=123456789,EyeColor=1,Feet=6,Inches=10,Gender=2},
+                new Officer{FirstName="Smith",LastName="Brown"}
             };
 
             officers.ForEach(s => context.Officers.Add(s));
@@ -22,7 +22,7 @@ namespace Team6.DAL
 
             var criminals = new List<Criminal>
             {
-                new Criminal{first_name="John",last_name="Doe",date_of_birth=DateTime.Parse("1985-09-01")}
+                new Criminal{FirstName="John",LastName="Doe",DateOfBirth=DateTime.Parse("1985-09-01")}
             };
 
             criminals.ForEach(s => context.Criminals.Add(s));
@@ -30,7 +30,7 @@ namespace Team6.DAL
 
             var crimereports = new List<CrimeReport>
             {
-                new CrimeReport{officer_id=123,crimereportID=098,offense_date=DateTime.Parse("2005-09-01"),admitted_date=DateTime.Parse("2005-09-01"), time=DateTime.Parse("2005-09-01 07:00:00 PM")}
+                new CrimeReport{OfficerID=123,CrimereportID=098,OffenseDate=DateTime.Parse("2005-09-01"),AdmittedDate=DateTime.Parse("2005-09-01"), Time=DateTime.Parse("2005-09-01 07:00:00 PM")}
             };
 
             crimereports.ForEach(s => context.CrimeReports.Add(s));

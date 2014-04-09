@@ -8,19 +8,19 @@ namespace Team6.Models
 {
     public class Officer
     {
-        public int officerID { get; set; }
-        public int badge_number { get; set; }
-        public int rank { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string user_name { get; set; }
-        public string paswerd { get; set; }
-        public int phone_number { get; set; }
-        public string email { get; set; }
-        public int ssn { get; set; }
-        public int eye_color { get; set; }
-        public int feet { get; set; }
-        public int inches { get; set; }
-        public int gender { get; set; }
+        public int OfficerID { get; set; }
+        public int BadgeNumber { get; set; }
+        public int Rank { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public int PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public int Ssn { get; set; }
+        public int EyeColor { get; set; }
+        public int Feet { get; set; }
+        public int Inches { get; set; }
+        public int Gender { get; set; }
     }
 }
