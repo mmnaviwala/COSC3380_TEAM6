@@ -48,8 +48,7 @@ namespace Team6.Models
         public string Email { get; set; }
         public int Ssn { get; set; }
         public EyeColor? EyeColor { get; set; }
-        public int Feet { get; set; }
-        public int Inches { get; set; }
+        public int Height { get; set; }
         public Gender? Gender { get; set; }
     }
 }
