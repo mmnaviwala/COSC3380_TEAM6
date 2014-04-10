@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -43,6 +44,7 @@ namespace Team6.Models
     public class Criminal
     {
         [Display(Name = "Criminal ID")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CriminalID { get; set; }
 
         [StringLength(30)]
@@ -103,6 +105,7 @@ namespace Team6.Models
         public string misc { get; set; }
 
 
-        public virtual CrimeReport CrimeReport { get; set; }
+        //public virtual CrimeReport CrimeReport { get; set; }
+        public virtual ICollection<CrimeReport> CrimeReports { get; set; }
     }
 }
