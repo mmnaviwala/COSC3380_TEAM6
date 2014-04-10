@@ -1,4 +1,6 @@
-﻿@model Team6.Models.Officer
+﻿@using Team6.helpers.enumhelper
+@using Team6.Models
+@model Team6.Models.Officer
 
 @{
     ViewBag.Title = "Edit";
@@ -28,7 +30,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Rank, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Rank)
+                @Html.DropDownList("Rank", enumHelper.GetSelectedItemList<Rank>(), new { style = "width:300px" })
                 @Html.ValidationMessageFor(model => model.Rank)
             </div>
         </div>
@@ -92,7 +94,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EyeColor, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EyeColor)
+                @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:300px" })
                 @Html.ValidationMessageFor(model => model.EyeColor)
             </div>
         </div>
@@ -108,7 +110,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Gender, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Gender)
+                @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:300px" })
                 @Html.ValidationMessageFor(model => model.Gender)
             </div>
         </div>

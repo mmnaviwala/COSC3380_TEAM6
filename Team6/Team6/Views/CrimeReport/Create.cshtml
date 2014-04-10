@@ -1,4 +1,6 @@
-﻿@model Team6.Models.CrimeReport
+﻿@using Team6.helpers.enumhelper
+@using Team6.Models
+@model Team6.Models.CrimeReport
 
 @{
     ViewBag.Title = "Create";
@@ -51,7 +53,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OffenseType, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OffenseType)
+                @Html.DropDownList("Offense Type", enumHelper.GetSelectedItemList<OffenseType>(), new { style="width:300px"})
                 @Html.ValidationMessageFor(model => model.OffenseType)
             </div>
         </div>

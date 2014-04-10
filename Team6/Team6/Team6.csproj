@@ -128,6 +128,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="helpers\enumhelper\enumHelper.cs" />
     <Compile Include="Models\Criminal.cs" />
     <Compile Include="Models\CrimeReport.cs" />
     <Compile Include="Models\Officer.cs" />

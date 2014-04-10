@@ -1,4 +1,6 @@
-﻿@model Team6.Models.Criminal
+﻿@using Team6.helpers.enumhelper
+@using Team6.Models
+@model Team6.Models.Criminal
 
 @{
     ViewBag.Title = "Create";
@@ -35,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EyeColor, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EyeColor)
+                @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:300px" })
                 @Html.ValidationMessageFor(model => model.EyeColor)
             </div>
         </div>
@@ -59,7 +61,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Gender, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Gender)
+                @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:300px" })
                 @Html.ValidationMessageFor(model => model.Gender)
             </div>
         </div>
@@ -83,7 +85,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HairColor, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HairColor)
+                @Html.DropDownList("Hair Color", enumHelper.GetSelectedItemList<HairColor>(), new { style = "width:300px" })
                 @Html.ValidationMessageFor(model => model.HairColor)
             </div>
         </div>
@@ -107,7 +109,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Race, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Race)
+                @Html.DropDownList("Race", enumHelper.GetSelectedItemList<Race>(), new { style = "width:300px" })
                 @Html.ValidationMessageFor(model => model.Race)
             </div>
         </div>
@@ -123,7 +125,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.State, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.State)
+                @Html.DropDownList("State", enumHelper.GetSelectedItemList<State>(), new { style = "width:300px" })
                 @Html.ValidationMessageFor(model => model.State)
             </div>
         </div>
