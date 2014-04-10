@@ -101,5 +101,8 @@ namespace Team6.Models
 
         [Display(Name = "Miscellaneous")]
         public string misc { get; set; }
+
+
+        public virtual CrimeReport CrimeReport { get; set; }
     }
 }

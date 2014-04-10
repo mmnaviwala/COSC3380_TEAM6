@@ -69,5 +69,8 @@ namespace Team6.Models
 
         [Display(Name = "Gender")]
         public Gender? Gender { get; set; }
+
+
+        public virtual CrimeReport CrimeReport { get; set; }
     }
 }

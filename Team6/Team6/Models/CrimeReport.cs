@@ -71,5 +71,9 @@ namespace Team6.Models
         [Display(Name = "Time")]
         public DateTime Time { get; set; }
 
+
+        public virtual Officer Officer { get; set; }
+        public virtual Criminal Criminal { get; set; }
+
     }
 }
