@@ -29,7 +29,7 @@
             <div class="col-xs-1">
                 @Html.LabelFor(model => model.Rank)
                 </div>
-                @Html.DropDownList("Rank", enumHelper.GetSelectedItemList<Rank>(), new { style = "width:200px" })
+                @Html.DropDownList("Rank", enumHelper.GetSelectedItemList<Rank>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.Rank)
             </div>
 
@@ -92,7 +92,7 @@
             <div class="col-xs-1">
                 @Html.LabelFor(model => model.EyeColor)
                 </div>
-                @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:200px" })
+                @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.EyeColor)
 
             </div>
@@ -109,7 +109,7 @@
             <div class="col-xs-1">
                 @Html.LabelFor(model => model.Gender)
                 </div>
-                @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:200px" })
+                @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.Gender)
 
             </div>
