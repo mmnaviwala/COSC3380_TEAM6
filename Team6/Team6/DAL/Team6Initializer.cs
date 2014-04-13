@@ -13,7 +13,11 @@ namespace Team6.DAL
         {
             var criminals = new List<Criminal>
             {
-                new Criminal{CriminalID=123456,FirstName="John",LastName="Doe",DateOfBirth=DateTime.Parse("1971-05-20")}
+                new Criminal{CriminalID=123456,FirstName="John",LastName="Doe",DateOfBirth=DateTime.Parse("1971-05-20")},
+                new Criminal{CriminalID=112233,FirstName="Carl",LastName="Johnson",DateOfBirth=DateTime.Parse("1980-11-18")},
+                new Criminal{CriminalID=223344,FirstName="Xavier",LastName="Jones",DateOfBirth=DateTime.Parse("1983-02-10")},
+                new Criminal{CriminalID=778899,FirstName="Phil",LastName="Thomas",DateOfBirth=DateTime.Parse("1963-12-05")},
+                new Criminal{CriminalID=445566,FirstName="Adam",LastName="Rivet",DateOfBirth=DateTime.Parse("1988-04-16")},
             };
 
             criminals.ForEach(s => context.Criminals.Add(s));
