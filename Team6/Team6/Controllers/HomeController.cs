@@ -26,5 +26,12 @@ namespace Team6.Controllers
 
             return View();
         }
+
+        public ActionResult Search()
+        {
+            ViewBag.Message = "Le search page";
+
+            return View();
+        }
     }
 }

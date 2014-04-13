@@ -180,6 +180,7 @@
     <Content Include="Views\CrimeReport\Details.cshtml" />
     <Content Include="Views\CrimeReport\Edit.cshtml" />
     <Content Include="Views\CrimeReport\Index.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
