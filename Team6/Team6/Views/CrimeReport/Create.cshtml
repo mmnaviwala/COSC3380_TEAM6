@@ -9,7 +9,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
@@ -19,79 +19,89 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CriminalID, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CriminalID)
+            <div class="col-xs-4">
+            <div class="col-xs-4">
+                    @Html.LabelFor(model => model.CriminalID)
+                </div>
+                    @Html.EditorFor(model => model.CriminalID) 
+                
+                </div>
+            
+
+
                 @Html.ValidationMessageFor(model => model.CriminalID)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.OfficerID, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.OfficerID)
+                </div>
                 @Html.EditorFor(model => model.OfficerID)
+
                 @Html.ValidationMessageFor(model => model.OfficerID)
+
             </div>
-        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CaseNumber, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CaseNumber)
-                @Html.ValidationMessageFor(model => model.CaseNumber)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Suspect, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.CaseNumber, new { @class = "" })
+                </div>
+                    @Html.EditorFor(model => model.CaseNumber)
+                    @Html.ValidationMessageFor(model => model.CaseNumber)
+                </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.Suspect, new { @class = "" })
+                </div>
                 @Html.EditorFor(model => model.Suspect)
                 @Html.ValidationMessageFor(model => model.Suspect)
+
             </div>
-        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OffenseType, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Offense Type", enumHelper.GetSelectedItemList<OffenseType>(), new { style="width:300px"})
-                @Html.ValidationMessageFor(model => model.OffenseType)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.OffenseDate, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.OffenseType, new { @class = "" })
+                    </div>
+                    @Html.DropDownList("Offense Type", enumHelper.GetSelectedItemList<OffenseType>(), new { style = "width:200px" })
+                    @Html.ValidationMessageFor(model => model.OffenseType)
+                </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.OffenseDate, new { @class = "" })
+                </div>
                 @Html.EditorFor(model => model.OffenseDate)
                 @Html.ValidationMessageFor(model => model.OffenseDate)
+
             </div>
-        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AdmittedDate, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AdmittedDate)
-                @Html.ValidationMessageFor(model => model.AdmittedDate)
-            </div>
-        </div>
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.AdmittedDate, new { @class = "" })
+                    </div>
+                    @Html.EditorFor(model => model.AdmittedDate)
+                    @Html.ValidationMessageFor(model => model.AdmittedDate)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PrisonAgency, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+
+                </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.PrisonAgency, new { @class = "" })
+                </div>
                 @Html.EditorFor(model => model.PrisonAgency)
                 @Html.ValidationMessageFor(model => model.PrisonAgency)
+
             </div>
-        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Time, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Time)
-                @Html.ValidationMessageFor(model => model.Time)
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.Time, new { @class = "" })
+                    </div>
+                    @Html.EditorFor(model => model.Time)
+                    @Html.ValidationMessageFor(model => model.Time)
+                </div>
+
             </div>
-        </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-6 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
