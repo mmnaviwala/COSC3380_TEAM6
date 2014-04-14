@@ -26,7 +26,7 @@ namespace Team6.Models
 
     public enum HairColor
     {
-	    Black, Brown, Red, Blonde, Grey, White, Bald
+	    Black, Brown, Red, Blonde, Grey, White, Bald, Other
     }
 
     public enum Race
