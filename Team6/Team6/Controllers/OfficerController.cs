@@ -124,5 +124,33 @@ namespace Team6.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // public ActionResult SearchOfficer (int badgeNumber, string firstName, string lastName, string rank, string email, int ssn, int phoneNumber, string eyeColor, string gender)
+        public ActionResult SearchOfficer (string firstName, string lastName, string userName, string email, string phoneNumber, string ssn, string badeNumber)
+        {
+            var officers = from s in db.Officers select s;
+            
+            firstName = string.IsNullOrEmpty(firstName) ? "" : firstName;
+            lastName = string.IsNullOrEmpty(lastName) ? "" : lastName;
+            userName = string.IsNullOrEmpty(userName) ? "" : userName;
+            email = string.IsNullOrEmpty(email) ? "" : email;
+
+            int phoneNumberInt = string.IsNullOrEmpty(phoneNumber) ? 0 : Convert.ToInt32(phoneNumber);
+            int ssnInt = string.IsNullOrEmpty(ssn) ? 0 : Convert.ToInt32(ssn);
+            int badeNumberInt = string.IsNullOrEmpty(badeNumber) ? 0 : Convert.ToInt32(badeNumber);
+
+            //officers = officers.Where(s => s.FirstName.ToUpper().Contains(firstName.ToUpper()) &&
+            //                               s.LastName.ToUpper().Contains(lastName.ToUpper()) &&
+            //                               s.UserName.ToUpper().Contains(userName.ToUpper()) &&
+            //                               s.Email.ToUpper().Contains(email.ToUpper()) &&
+            //                               s.PhoneNumber.Equals(phoneNumberInt)
+            //                               );
+
+            var context = new Team6Context();
+            string sqlQuery = "SELECT * FROM dbo.Officer WHERE FirstName = \'" + firstName + "\'";
+            var officers1 = context.Officers.SqlQuery(sqlQuery);
+
+            return View(officers1.ToList());
+        }
     }
 }

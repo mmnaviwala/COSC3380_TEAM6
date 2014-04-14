@@ -10,6 +10,7 @@ namespace Team6.Models
 {
     public enum Rank
     {
+        None,
         [Description("Chief of police")]
         ChiefOfPolice,
         [Description("Assistant Chief")]

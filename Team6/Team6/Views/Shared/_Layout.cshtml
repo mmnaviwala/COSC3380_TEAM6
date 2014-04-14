@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Team6.helpers.enumhelper
+@using Team6.Models
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,7 +27,14 @@
                     <li>@Html.ActionLink("Officer", "Index", "Officer")</li>
                     <li>@Html.ActionLink("Criminal", "Index", "Criminal")</li>
                     <li>@Html.ActionLink("Crime Report", "Index", "CrimeReport")</li>
-                    <li>@Html.ActionLink("Search", "Search", "Home")</li>
+                  
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-toggle="modal" data-target="#myModal">Search Officer</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -36,6 +46,58 @@
             <p>&copy; @DateTime.Now.Year - Team6</p>
         </footer>
     </div>
+
+
+
+
+    <!-- Search officer modal start -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Search Officer</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("SearchOfficer", "Officer", FormMethod.Get))
+                    {
+                        <p>
+                            First Name: @Html.TextBox("firstName")
+                        </p>
+                        <p>
+                            Last Name: @Html.TextBox("lastName")
+                        </p>
+                        <p>
+                            User Name: @Html.TextBox("userName")
+                        </p>
+                        <p>
+                            Email: @Html.TextBox("email")
+                        </p>
+                        <p>
+                            Phone Number: @Html.TextBox("phoneNumber")
+                        </p>
+                        <p>
+                            SSN: @Html.TextBox("ssn")
+                        </p>
+                        <p>
+                            Badge Number: @Html.TextBox("badgeNumber")
+                        </p>
+                        
+                        <br />
+                        <input type="submit" value="Search" class="btn btn-primary"  />
+                    }
+                    
+                </div>
+                <!-- <div class="modal-footer"> -->
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button> -->
+                <!-- <div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Search officer modal end -->
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
