@@ -27,11 +27,13 @@
                     <li>@Html.ActionLink("Officer", "Index", "Officer")</li>
                     <li>@Html.ActionLink("Criminal", "Index", "Criminal")</li>
                     <li>@Html.ActionLink("Crime Report", "Index", "CrimeReport")</li>
-                  
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a data-toggle="modal" data-target="#myModal">Search Officer</a></li>
+                            <li><a data-toggle="modal" data-target="#officerModal">Search Officers</a></li>
+                            <li><a data-toggle="modal" data-target="#criminalModal">Search Criminals</a></li>
+                            <li><a data-toggle="modal" data-target="#crimeReportModal">Search Crime Reports</a></li>
                         </ul>
                     </li>
 
@@ -51,12 +53,12 @@
 
 
     <!-- Search officer modal start -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="officerModal" tabindex="-1" role="dialog" aria-labelledby="officerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Search Officer</h4>
+                    <h4 class="modal-title" id="officerModalLabel">Search Officers</h4>
                 </div>
                 <div class="modal-body">
                     @using (Html.BeginForm("SearchOfficer", "Officer", FormMethod.Get))
@@ -82,15 +84,15 @@
                         <p>
                             Badge Number: @Html.TextBox("badgeNumber")
                         </p>
-                        
+
                         <br />
-                        <input type="submit" value="Search" class="btn btn-primary"  />
+                        <input type="submit" value="Search" class="btn btn-primary" />
                     }
-                    
+
                 </div>
                 <!-- <div class="modal-footer"> -->
-                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button> -->
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button> -->
                 <!-- <div> -->
             </div>
         </div>
@@ -98,7 +100,91 @@
     <!-- Search officer modal end -->
 
 
+    <!-- Search criminal modal start -->
+    <div class="modal fade" id="criminalModal" tabindex="-1" role="dialog" aria-labelledby="criminalModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="criminalModalLabel">Search Criminals</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("SearchCriminal", "Criminal", FormMethod.Get))
+                    {
+                        <p>
+                            First Name: @Html.TextBox("firstName")
+                        </p>
+                        <p>
+                            Last Name: @Html.TextBox("lastName")
+                        </p>
+                        <p>
+                            Weight: @Html.TextBox("weight")
+                        </p>
+                        <p>
+                            Height: @Html.TextBox("height")
+                        </p>
+                        <p>
+                            SSN: @Html.TextBox("ssn")
+                        </p>
+                        <p>
+                            Address: @Html.TextBox("address")
+                        </p>
+                        <p>
+                            Zip Code: @Html.TextBox("zipCode")
+                        </p>
 
+                        <br />
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    }
+
+                </div>
+                <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button> -->
+                <!-- <div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Search criminal modal end -->
+
+
+    <!-- Search crime report modal start -->
+    <div class="modal fade" id="crimeReportModal" tabindex="-1" role="dialog" aria-labelledby="crimeReportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="crimeReportModalLabel">Search Crime Reports</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("SearchCrimeReport", "CrimeReport", FormMethod.Get))
+                    {
+                        <p>
+                            Criminal ID: @Html.TextBox("criminalId")
+                        </p>
+                        <p>
+                            Officer ID: @Html.TextBox("officerId")
+                        </p>
+                        <p>
+                            Case Number: @Html.TextBox("caseNumber")
+                        </p>
+                        <p>
+                            Prison Agency: @Html.TextBox("prisonAgency")
+                        </p>
+
+                        <br />
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    }
+
+                </div>
+                <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button> -->
+                <!-- <div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Search crime report modal end -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

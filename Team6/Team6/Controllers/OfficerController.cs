@@ -154,6 +154,46 @@ namespace Team6.Controllers
                     sqlQuery += "LastName = \'" + lastName + "\'";
                     cont = true;
                 }
+
+                if (!string.IsNullOrEmpty(userName))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "UserName = \'" + userName + "\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(email))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Email = \'" + email + "\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(phoneNumber))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "PhoneNumber = " + Convert.ToInt32(phoneNumber) + "";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(ssn))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Ssn = " + Convert.ToInt32(ssn) + "";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(badgeNumber))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "BadgeNumber = " + Convert.ToInt32(badgeNumber) + "";
+                    cont = true;
+                }
             }
 
             var officers1 = context.Officers.SqlQuery(sqlQuery);

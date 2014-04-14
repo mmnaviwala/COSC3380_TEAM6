@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Team6.Models.Officer>
 
 @{
-    ViewBag.Title = "SearchOfficer";
+    ViewBag.Title = "Search Officer";
 }
 
 <h2>Search Officer Result(s)</h2>
@@ -20,6 +20,31 @@
         <th>
             @Html.DisplayNameFor(model => model.LastName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ssn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EyeColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -37,7 +62,37 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ssn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EyeColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OfficerID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OfficerID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OfficerID })
+            </td>
         </tr>
     }
 
 </table>
+

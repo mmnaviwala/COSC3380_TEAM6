@@ -124,5 +124,57 @@ namespace Team6.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult SearchCrimeReport(string criminalId, string officerId, string caseNumber, string prisonAgency)
+        {
+            var context = new Team6Context();
+            string sqlQuery = "SELECT * FROM dbo.CrimeReport";
+            bool cont = false;
+
+            if (string.IsNullOrEmpty(criminalId) && string.IsNullOrEmpty(officerId) && string.IsNullOrEmpty(caseNumber) && string.IsNullOrEmpty(prisonAgency))
+            {
+                // some error message that the user should enter at least one field
+            }
+            else
+            {
+                sqlQuery = "SELECT * FROM dbo.CrimeReport WHERE ";
+
+                if (!string.IsNullOrEmpty(criminalId))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "CriminalID = " + Convert.ToInt32(criminalId) + "";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(officerId))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "OfficerID = " + Convert.ToInt32(officerId) + "";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(caseNumber))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "CaseNumber = \'" + caseNumber + "\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(prisonAgency))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "PrisonAgency = \'" + prisonAgency + "\'";
+                    cont = true;
+                }
+
+            }
+
+            var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
+            return View(crimeReports.ToList());
+        }
     }
 }

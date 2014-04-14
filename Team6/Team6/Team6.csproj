@@ -181,6 +181,8 @@
     <Content Include="Views\CrimeReport\Edit.cshtml" />
     <Content Include="Views\CrimeReport\Index.cshtml" />
     <Content Include="Views\Officer\SearchOfficer.cshtml" />
+    <Content Include="Views\Criminal\SearchCriminal.cshtml" />
+    <Content Include="Views\CrimeReport\SearchCrimeReport.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -124,5 +124,81 @@ namespace Team6.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult SearchCriminal(string firstName, string lastName, string weight, string height, string ssn, string address, string zipCode)
+        {
+            var context = new Team6Context();
+            string sqlQuery = "SELECT * FROM dbo.Criminal";
+            bool cont = false;
+
+            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && string.IsNullOrEmpty(weight) && string.IsNullOrEmpty(height) && string.IsNullOrEmpty(ssn) && string.IsNullOrEmpty(address) && string.IsNullOrEmpty(zipCode))
+            {
+                // some error message that the user should enter at least one field
+            }
+            else
+            {
+                sqlQuery = "SELECT * FROM dbo.Criminal WHERE ";
+
+                if (!string.IsNullOrEmpty(firstName))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "FirstName = \'" + firstName + "\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(lastName))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "LastName = \'" + lastName + "\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(weight))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Weight = " + Convert.ToInt32(weight) + "";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(height))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Height = " + Convert.ToInt32(height) + "";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(ssn))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Ssn = " + Convert.ToInt32(ssn) + "";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(address))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Address = \'" + address + "\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(zipCode))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "ZipCode = " + Convert.ToInt32(zipCode) + "";
+                    cont = true;
+                }
+
+            }
+
+            var criminals = context.Criminals.SqlQuery(sqlQuery);
+            return View(criminals.ToList());
+        }
     }
 }
