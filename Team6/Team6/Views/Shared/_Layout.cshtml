@@ -23,21 +23,24 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Officer", "Index", "Officer")</li>
-                    <li>@Html.ActionLink("Criminal", "Index", "Criminal")</li>
-                    <li>@Html.ActionLink("Crime Report", "Index", "CrimeReport")</li>                    
-                    <li>@Html.ActionLink("Logout", "LogOff", "Home")</li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a data-toggle="modal" data-target="#officerModal">Search Officers</a></li>
-                            <li><a data-toggle="modal" data-target="#criminalModal">Search Criminals</a></li>
-                            <li><a data-toggle="modal" data-target="#crimeReportModal">Search Crime Reports</a></li>
-                        </ul>
-                    </li>
-
+                    @{
+                        if ((System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Officer", "Index", "Officer")</li>
+                            <li>@Html.ActionLink("Criminal", "Index", "Criminal")</li>
+                            <li>@Html.ActionLink("Crime Report", "Index", "CrimeReport")</li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a data-toggle="modal" data-target="#officerModal">Search Officers</a></li>
+                                    <li><a data-toggle="modal" data-target="#criminalModal">Search Criminals</a></li>
+                                    <li><a data-toggle="modal" data-target="#crimeReportModal">Search Crime Reports</a></li>
+                                </ul>
+                            </li>
+                        <li>@Html.ActionLink("Logout", "LogOff", "Home")</li>
+                        }   
+                    }
                 </ul>
             </div>
         </div>
