@@ -20,12 +20,20 @@ namespace Team6.Controllers
         // GET: /Criminal/
         public ActionResult Index()
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             return View(db.Criminals.ToList());
         }
 
         // GET: /Criminal/Details/5
         public ActionResult Details(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -41,6 +49,10 @@ namespace Team6.Controllers
         // GET: /Criminal/Create
         public ActionResult Create()
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             return View();
         }
 
@@ -51,6 +63,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Criminals.Add(criminal);
@@ -64,6 +80,10 @@ namespace Team6.Controllers
         // GET: /Criminal/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -83,6 +103,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(criminal).State = EntityState.Modified;
@@ -95,6 +119,10 @@ namespace Team6.Controllers
         // GET: /Criminal/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -112,6 +140,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             Criminal criminal = db.Criminals.Find(id);
             db.Criminals.Remove(criminal);
             db.SaveChanges();
@@ -129,6 +161,10 @@ namespace Team6.Controllers
 
         public ActionResult SearchCriminal(string firstName, string lastName, string weight, string height, string ssn, string address, string zipCode, Race race, State state, Gender gender, EyeColor eyeColor, HairColor hairColor)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             var context = new Team6Context();
             string sqlQuery = "SELECT * FROM dbo.Criminal";
             bool cont = false;

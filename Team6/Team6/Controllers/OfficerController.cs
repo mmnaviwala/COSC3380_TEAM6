@@ -18,12 +18,20 @@ namespace Team6.Controllers
         // GET: /Officer/
         public ActionResult Index()
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             return View(db.Officers.ToList());
         }
 
         // GET: /Officer/Details/5
         public ActionResult Details(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +47,10 @@ namespace Team6.Controllers
         // GET: /Officer/Create
         public ActionResult Create()
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             return View();
         }
 
@@ -49,6 +61,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Officers.Add(officer);
@@ -62,6 +78,10 @@ namespace Team6.Controllers
         // GET: /Officer/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +101,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(officer).State = EntityState.Modified;
@@ -93,6 +117,10 @@ namespace Team6.Controllers
         // GET: /Officer/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +138,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             Officer officer = db.Officers.Find(id);
             db.Officers.Remove(officer);
             db.SaveChanges();
@@ -127,6 +159,10 @@ namespace Team6.Controllers
 
         public ActionResult SearchOfficer (string firstName, string lastName, string userName, string email, string phoneNumber, string ssn, string badgeNumber, Rank rank, Gender gender, EyeColor eyeColor)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             var context = new Team6Context();
             string sqlQuery = "SELECT * FROM dbo.Officer";
             bool cont = false;

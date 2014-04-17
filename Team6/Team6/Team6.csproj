@@ -183,6 +183,8 @@
     <Content Include="Views\Officer\SearchOfficer.cshtml" />
     <Content Include="Views\Criminal\SearchCriminal.cshtml" />
     <Content Include="Views\CrimeReport\SearchCrimeReport.cshtml" />
+    <Content Include="Views\Home\LogOn.cshtml" />
+    <Content Include="Views\Home\LogOff.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

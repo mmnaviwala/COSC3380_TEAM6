@@ -18,12 +18,20 @@ namespace Team6.Controllers
         // GET: /CrimeReport/
         public ActionResult Index()
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             return View(db.CrimeReports.ToList());
         }
 
         // GET: /CrimeReport/Details/5
         public ActionResult Details(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +47,10 @@ namespace Team6.Controllers
         // GET: /CrimeReport/Create
         public ActionResult Create()
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             return View();
         }
 
@@ -49,6 +61,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="CrimereportID,CriminalID,OfficerID,CaseNumber,Suspect,OffenseType,OffenseDate,AdmittedDate,PrisonAgency,Time")] CrimeReport crimereport)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.CrimeReports.Add(crimereport);
@@ -62,6 +78,10 @@ namespace Team6.Controllers
         // GET: /CrimeReport/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +101,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="CrimereportID,CriminalID,OfficerID,CaseNumber,Suspect,OffenseType,OffenseDate,AdmittedDate,PrisonAgency,Time")] CrimeReport crimereport)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(crimereport).State = EntityState.Modified;
@@ -93,6 +117,10 @@ namespace Team6.Controllers
         // GET: /CrimeReport/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +138,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             CrimeReport crimereport = db.CrimeReports.Find(id);
             db.CrimeReports.Remove(crimereport);
             db.SaveChanges();
@@ -127,6 +159,10 @@ namespace Team6.Controllers
 
         public ActionResult SearchCrimeReport(string criminalId, string officerId, string caseNumber, string prisonAgency, OffenseType offenseType)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             var context = new Team6Context();
             string sqlQuery = "SELECT * FROM dbo.CrimeReport";
             bool cont = false;

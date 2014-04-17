@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using Team6.DAL;
 
 namespace Team6.Models
 {
@@ -76,5 +77,16 @@ namespace Team6.Models
 
         //public virtual CrimeReport CrimeReport { get; set; }
         public virtual ICollection<CrimeReport> CrimeReports { get; set; }
+
+        public string getUserPassword(string userLogIn)
+        {
+            Team6Context dre = new Team6Context();
+            var user = from o in dre.Officers where o.UserName == userLogIn select o;
+            if (user.ToList().Count > 0)
+                return user.First().Password;
+            else
+                return string.Empty;
+
+        }
     }
 }
