@@ -84,6 +84,15 @@
                         <p>
                             Badge Number: @Html.TextBox("badgeNumber")
                         </p>
+                        <p>
+                            Rank: @Html.DropDownList("rank", enumHelper.GetSelectedItemList<Rank>(), new { style = "width:160px" })
+                        </p>
+                        <p>
+                            Gender: @Html.DropDownList("gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
+                        </p>
+                        <p>
+                            Eye Color: @Html.DropDownList("eyeColor", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
+                        </p>
 
                         <br />
                         <input type="submit" value="Search" class="btn btn-primary" />
@@ -132,6 +141,21 @@
                         <p>
                             Zip Code: @Html.TextBox("zipCode")
                         </p>
+                        <p>
+                            Race: @Html.DropDownList("race", enumHelper.GetSelectedItemList<Race>(), new { style = "width:160px" })
+                        </p>
+                        <p>
+                            State: @Html.DropDownList("state", enumHelper.GetSelectedItemList<State>(), new { style = "width:160px" })
+                        </p>
+                        <p>
+                            Gender: @Html.DropDownList("gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
+                        </p>
+                        <p>
+                            Eye Color: @Html.DropDownList("eyeColor", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
+                        </p>
+                        <p>
+                            Hair Color: @Html.DropDownList("hairColor", enumHelper.GetSelectedItemList<HairColor>(), new { style = "width:160px" })
+                        </p>
 
                         <br />
                         <input type="submit" value="Search" class="btn btn-primary" />
@@ -171,6 +195,9 @@
                         <p>
                             Prison Agency: @Html.TextBox("prisonAgency")
                         </p>
+                        <p>
+                            Offense Type: @Html.DropDownList("offenseType", enumHelper.GetSelectedItemList<OffenseType>(), new { style = "width:160px" })
+                        </p>
 
                         <br />
                         <input type="submit" value="Search" class="btn btn-primary" />
@@ -185,6 +212,8 @@
         </div>
     </div>
     <!-- Search crime report modal end -->
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

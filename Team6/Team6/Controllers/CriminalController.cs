@@ -8,12 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using Team6.Models;
 using Team6.DAL;
+using System.IO;
 
 namespace Team6.Controllers
 {
     public class CriminalController : Controller
     {
         private Team6Context db = new Team6Context();
+        //FileStream fs = new FileStream("C:/Users/Muhammad Naviwala/Documents/GitHub/criminal_queries.log", FileMode.OpenOrCreate);
 
         // GET: /Criminal/
         public ActionResult Index()
@@ -125,13 +127,13 @@ namespace Team6.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult SearchCriminal(string firstName, string lastName, string weight, string height, string ssn, string address, string zipCode)
+        public ActionResult SearchCriminal(string firstName, string lastName, string weight, string height, string ssn, string address, string zipCode, Race race, State state, Gender gender, EyeColor eyeColor, HairColor hairColor)
         {
             var context = new Team6Context();
             string sqlQuery = "SELECT * FROM dbo.Criminal";
             bool cont = false;
 
-            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && string.IsNullOrEmpty(weight) && string.IsNullOrEmpty(height) && string.IsNullOrEmpty(ssn) && string.IsNullOrEmpty(address) && string.IsNullOrEmpty(zipCode))
+            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && string.IsNullOrEmpty(weight) && string.IsNullOrEmpty(height) && string.IsNullOrEmpty(ssn) && string.IsNullOrEmpty(address) && string.IsNullOrEmpty(zipCode) && race.Equals(Race.None) && state.Equals(State.None) && gender.Equals(Gender.None) && eyeColor.Equals(EyeColor.None) && hairColor.Equals(HairColor.None))
             {
                 // some error message that the user should enter at least one field
             }
@@ -195,7 +197,52 @@ namespace Team6.Controllers
                     cont = true;
                 }
 
+                if (!race.Equals(Race.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Race = " + Convert.ToInt32(race);
+                    cont = true;
+                }
+
+                if (!state.Equals(State.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "State = " + Convert.ToInt32(state);
+                    cont = true;
+                }
+
+                if (!gender.Equals(Gender.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Gender = " + Convert.ToInt32(gender);
+                    cont = true;
+                }
+
+                if (!eyeColor.Equals(EyeColor.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "EyeColor = " + Convert.ToInt32(eyeColor);
+                    cont = true;
+                }
+
+                if (!hairColor.Equals(HairColor.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "HairColor = " + Convert.ToInt32(hairColor);
+                    cont = true;
+                }
+
             }
+            
+            //using (StreamWriter _writer = new StreamWriter(fs))
+            //{
+            //    _writer.WriteLine(sqlQuery);
+            //}
 
             var criminals = context.Criminals.SqlQuery(sqlQuery);
             return View(criminals.ToList());

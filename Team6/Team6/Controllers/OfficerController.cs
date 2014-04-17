@@ -125,13 +125,13 @@ namespace Team6.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult SearchOfficer (string firstName, string lastName, string userName, string email, string phoneNumber, string ssn, string badgeNumber)
+        public ActionResult SearchOfficer (string firstName, string lastName, string userName, string email, string phoneNumber, string ssn, string badgeNumber, Rank rank, Gender gender, EyeColor eyeColor)
         {
             var context = new Team6Context();
             string sqlQuery = "SELECT * FROM dbo.Officer";
             bool cont = false;
 
-            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && string.IsNullOrEmpty(userName) && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phoneNumber) && string.IsNullOrEmpty(ssn) && string.IsNullOrEmpty(badgeNumber))
+            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && string.IsNullOrEmpty(userName) && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phoneNumber) && string.IsNullOrEmpty(ssn) && string.IsNullOrEmpty(badgeNumber) && rank.Equals(Rank.None) && gender.Equals(Gender.None) && eyeColor.Equals(EyeColor.None))
             {
                 // some error message that the user should enter at least one field
             }
@@ -192,6 +192,30 @@ namespace Team6.Controllers
                     if (cont)
                         sqlQuery += " AND ";
                     sqlQuery += "BadgeNumber = " + Convert.ToInt32(badgeNumber) + "";
+                    cont = true;
+                }
+
+                if (!rank.Equals(Rank.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Rank = " + Convert.ToInt32(rank);
+                    cont = true;
+                }
+
+                if (!gender.Equals(Gender.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Gender = " + Convert.ToInt32(gender);
+                    cont = true;
+                }
+
+                if (!eyeColor.Equals(EyeColor.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "EyeColor = " + Convert.ToInt32(eyeColor);
                     cont = true;
                 }
             }

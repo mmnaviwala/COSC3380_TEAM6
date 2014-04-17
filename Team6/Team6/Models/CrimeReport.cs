@@ -9,6 +9,7 @@ namespace Team6.Models
 {
     public enum OffenseType
     {
+        None,
         Murder,
         Rape,
         Robbery,

@@ -125,13 +125,13 @@ namespace Team6.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult SearchCrimeReport(string criminalId, string officerId, string caseNumber, string prisonAgency)
+        public ActionResult SearchCrimeReport(string criminalId, string officerId, string caseNumber, string prisonAgency, OffenseType offenseType)
         {
             var context = new Team6Context();
             string sqlQuery = "SELECT * FROM dbo.CrimeReport";
             bool cont = false;
 
-            if (string.IsNullOrEmpty(criminalId) && string.IsNullOrEmpty(officerId) && string.IsNullOrEmpty(caseNumber) && string.IsNullOrEmpty(prisonAgency))
+            if (string.IsNullOrEmpty(criminalId) && string.IsNullOrEmpty(officerId) && string.IsNullOrEmpty(caseNumber) && string.IsNullOrEmpty(prisonAgency) && offenseType.Equals(OffenseType.None))
             {
                 // some error message that the user should enter at least one field
             }
@@ -168,6 +168,14 @@ namespace Team6.Controllers
                     if (cont)
                         sqlQuery += " AND ";
                     sqlQuery += "PrisonAgency = \'" + prisonAgency + "\'";
+                    cont = true;
+                }
+
+                if (!offenseType.Equals(OffenseType.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "OffenseType = " + Convert.ToInt32(offenseType);
                     cont = true;
                 }
 
