@@ -37,11 +37,11 @@ namespace Team6.DAL
 
             var crimereports = new List<CrimeReport>
             {
-                new CrimeReport{CrimereportID=123789,CriminalID=123456,OfficerID=654321,CaseNumber="ASD1234",Suspect=1,OffenseType=OffenseType.Burglary, OffenseDate=DateTime.Parse("1991-05-05"),AdmittedDate=DateTime.Parse("1991-05-20"),PrisonAgency="Uma's Penetentiary",Time=DateTime.Parse("1991-05-21")},
-                new CrimeReport{CrimereportID=741258,CriminalID=123456,OfficerID=258741,CaseNumber="ASD7890",Suspect=0,OffenseType=OffenseType.Vandalism,OffenseDate=DateTime.Parse("1995-03-13"),AdmittedDate=DateTime.Parse("1995-04-10"),PrisonAgency="Alcatraz",Time=DateTime.Parse("1995-04-11")},
-                new CrimeReport{CrimereportID=753951,CriminalID=123456,OfficerID=845162,CaseNumber="ASD4567",Suspect=0,OffenseType=OffenseType.Manslaughter, OffenseDate=DateTime.Parse("1996-08-18"),AdmittedDate=DateTime.Parse("1996-08-20"),PrisonAgency="Azcaban",Time=DateTime.Parse("1996-08-22")},
-                new CrimeReport{CrimereportID=456159,CriminalID=123456,OfficerID=956251,CaseNumber="AMD1580",Suspect=1,OffenseType=OffenseType.MotorVehicleTheft, OffenseDate=DateTime.Parse("1997-12-24"),AdmittedDate=DateTime.Parse("1998-01-05"),PrisonAgency="Emerald City",Time=DateTime.Parse("1998-01-12")},
-                new CrimeReport{CrimereportID=753789,CriminalID=123456,OfficerID=764312,CaseNumber="UMA7390",Suspect=1,OffenseType=OffenseType.AggravatedAssault, OffenseDate=DateTime.Parse("1999-10-30"),AdmittedDate=DateTime.Parse("1999-11-24"),PrisonAgency="Woodbury",Time=DateTime.Parse("1999-11-27")},
+                new CrimeReport{CrimereportID=123789,CriminalID=123456,OfficerID=654321,CaseNumber="ASD1234",Suspect=true,OffenseType=OffenseType.Burglary, OffenseDate=DateTime.Parse("1991-05-05"),AdmittedDate=DateTime.Parse("1991-05-20"),PrisonAgency="Uma's Penetentiary",Time=DateTime.Parse("1991-05-21")},
+                new CrimeReport{CrimereportID=741258,CriminalID=123456,OfficerID=258741,CaseNumber="ASD7890",Suspect=true,OffenseType=OffenseType.Vandalism,OffenseDate=DateTime.Parse("1995-03-13"),AdmittedDate=DateTime.Parse("1995-04-10"),PrisonAgency="Alcatraz",Time=DateTime.Parse("1995-04-11")},
+                new CrimeReport{CrimereportID=753951,CriminalID=123456,OfficerID=845162,CaseNumber="ASD4567",Suspect=true,OffenseType=OffenseType.Manslaughter, OffenseDate=DateTime.Parse("1996-08-18"),AdmittedDate=DateTime.Parse("1996-08-20"),PrisonAgency="Azcaban",Time=DateTime.Parse("1996-08-22")},
+                new CrimeReport{CrimereportID=456159,CriminalID=123456,OfficerID=956251,CaseNumber="AMD1580",Suspect=false,OffenseType=OffenseType.MotorVehicleTheft, OffenseDate=DateTime.Parse("1997-12-24"),AdmittedDate=DateTime.Parse("1998-01-05"),PrisonAgency="Emerald City",Time=DateTime.Parse("1998-01-12")},
+                new CrimeReport{CrimereportID=753789,CriminalID=123456,OfficerID=764312,CaseNumber="UMA7390",Suspect=false,OffenseType=OffenseType.AggravatedAssault, OffenseDate=DateTime.Parse("1999-10-30"),AdmittedDate=DateTime.Parse("1999-11-24"),PrisonAgency="Woodbury",Time=DateTime.Parse("1999-11-27")},
             };
 
             crimereports.ForEach(s => context.CrimeReports.Add(s));
