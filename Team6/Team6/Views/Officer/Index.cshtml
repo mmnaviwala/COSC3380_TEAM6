@@ -5,10 +5,17 @@
 }
 
 <h2>Index</h2>
+@{
+    HttpCookie cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
 
+    if (ticket.UserData == "ChiefOfPolice" || ticket.UserData == "AssistantChief")
+    { 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+}
+}
 <table class="table">
     <tr>
         <th>

@@ -89,5 +89,15 @@ namespace Team6.Models
                 return string.Empty;
 
         }
+        public string getUserRank(string userLogIn)
+        {
+            Team6Context dre = new Team6Context();
+            var user = from o in dre.Officers where o.UserName == userLogIn select o;
+            if (user.ToList().Count > 0)
+                return user.First().Rank.ToString();
+            else
+                return string.Empty;
+
+        }
     }
 }
