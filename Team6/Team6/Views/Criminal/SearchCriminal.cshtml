@@ -64,6 +64,10 @@
 
     @foreach (var item in Model)
     {
+        HttpCookie cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+        FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+        if (item.DateOfBirth.AddYears(18) < DateTime.Now)
+        { 
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -122,7 +126,71 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.CriminalID })
             </td>
         </tr>
-    }
+            }
+        else 
+            if (ticket.UserData == "ChiefOfPolice" || ticket.UserData == "AssistantChief")
+            {
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EyeColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ssn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HairColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KnownAffiliates)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Race)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.misc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CriminalID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CriminalID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CriminalID })
+            </td>
+        </tr>
+            }
+        }
+    
 
 </table>
 
