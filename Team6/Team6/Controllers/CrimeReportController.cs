@@ -179,7 +179,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "CriminalID = " + Convert.ToInt32(criminalId) + "";
+                    sqlQuery += "CriminalID LIKE \'%" + Convert.ToInt32(criminalId) + "%\'";
                     cont = true;
                 }
 
@@ -187,7 +187,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "OfficerID = " + Convert.ToInt32(officerId) + "";
+                    sqlQuery += "OfficerID LIKE \'%" + Convert.ToInt32(officerId) + "%\'";
                     cont = true;
                 }
 
@@ -195,7 +195,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "CaseNumber = \'" + caseNumber + "\'";
+                    caseNumber = caseNumber.Replace("'", "''");
+                    sqlQuery += "CaseNumber LIKE \'%" + caseNumber + "%\'";
                     cont = true;
                 }
 
@@ -203,7 +204,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "PrisonAgency = \'" + prisonAgency + "\'";
+                    prisonAgency = prisonAgency.Replace("'", "''");
+                    sqlQuery += ("PrisonAgency LIKE \'%" + prisonAgency + "%\'");
                     cont = true;
                 }
 

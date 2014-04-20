@@ -179,7 +179,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "FirstName = \'" + firstName + "\'";
+                    firstName = firstName.Replace("'", "''");
+                    sqlQuery += "FirstName LIKE \'%" + firstName + "%\'";
                     cont = true;
                 }
 
@@ -187,7 +188,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "LastName = \'" + lastName + "\'";
+                    lastName = lastName.Replace("'", "''");
+                    sqlQuery += "LastName LIKE \'%" + lastName + "%\'";
                     cont = true;
                 }
 
@@ -195,7 +197,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "UserName = \'" + userName + "\'";
+                    userName.Replace("'", "''");
+                    sqlQuery += "UserName LIKE \'%" + userName + "%\'";
                     cont = true;
                 }
 
@@ -203,7 +206,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "Email = \'" + email + "\'";
+                    email = email.Replace("'", "''");
+                    sqlQuery += "Email LIKE \'%" + email + "%\'";
                     cont = true;
                 }
 
@@ -211,7 +215,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "PhoneNumber = " + Convert.ToInt32(phoneNumber) + "";
+                    sqlQuery += "PhoneNumber LIKE \'%" + Convert.ToInt32(phoneNumber) + "%\'";
                     cont = true;
                 }
 
@@ -219,7 +223,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "Ssn = " + Convert.ToInt32(ssn) + "";
+                    sqlQuery += "Ssn LIKE \'%" + Convert.ToInt32(ssn) + "%\'";
                     cont = true;
                 }
 
@@ -227,7 +231,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "BadgeNumber = " + Convert.ToInt32(badgeNumber) + "";
+                    sqlQuery += "BadgeNumber LIKE \'%" + Convert.ToInt32(badgeNumber) + "%\'";
                     cont = true;
                 }
 

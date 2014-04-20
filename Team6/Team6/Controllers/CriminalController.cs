@@ -181,7 +181,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "FirstName = \'" + firstName + "\'";
+                    firstName = firstName.Replace("'", "''");
+                    sqlQuery += "FirstName LIKE \'%" + firstName + "%\'";
                     cont = true;
                 }
 
@@ -189,7 +190,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "LastName = \'" + lastName + "\'";
+                    lastName = lastName.Replace("'", "''");
+                    sqlQuery += "LastName LIKE \'%" + lastName + "%\'";
                     cont = true;
                 }
 
@@ -197,7 +199,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "Weight = " + Convert.ToInt32(weight) + "";
+                    sqlQuery += "Weight LIKE \'%" + Convert.ToInt32(weight) + "%\'";
                     cont = true;
                 }
 
@@ -205,7 +207,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "Height = " + Convert.ToInt32(height) + "";
+                    sqlQuery += "Height LIKE \'%" + Convert.ToInt32(height) + "%\'";
                     cont = true;
                 }
 
@@ -213,7 +215,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "Ssn = " + Convert.ToInt32(ssn) + "";
+                    sqlQuery += "Ssn LIKE \'%" + Convert.ToInt32(ssn) + "%\'";
                     cont = true;
                 }
 
@@ -221,7 +223,8 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "Address = \'" + address + "\'";
+                    address = address.Replace("'", "''");
+                    sqlQuery += "Address LIKE \'%" + address + "%\'";
                     cont = true;
                 }
 
@@ -229,7 +232,7 @@ namespace Team6.Controllers
                 {
                     if (cont)
                         sqlQuery += " AND ";
-                    sqlQuery += "ZipCode = " + Convert.ToInt32(zipCode) + "";
+                    sqlQuery += "ZipCode LIKE \'%" + Convert.ToInt32(zipCode) + "%\'";
                     cont = true;
                 }
 
