@@ -4,6 +4,14 @@
     ViewBag.Title = "Index";
 }
 
+
+@{
+    if (ViewBag.Message != null)
+    {
+        <h3 class="alert alert-danger">@ViewBag.Message</h3>
+    }
+}
+
 <h2>Index</h2>
 @{
     HttpCookie cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
@@ -93,7 +101,6 @@
             @Html.DisplayFor(modelItem => item.Gender)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OfficerID }) |
             @Html.ActionLink("Details", "Details", new { id=item.OfficerID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.OfficerID })
         </td>
@@ -138,7 +145,6 @@
             @Html.DisplayFor(modelItem => item.Gender)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OfficerID }) |
             @Html.ActionLink("Details", "Details", new { id=item.OfficerID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.OfficerID })
         </td>

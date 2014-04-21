@@ -22,6 +22,8 @@ namespace Team6.Controllers
             {
                 return RedirectToAction("LogOn", "Home");
             }
+            var errMsg = TempData["ErrorMessage"] as string;
+            ViewBag.Message = errMsg;
             return View(db.Officers.ToList());
         }
 
@@ -82,6 +84,7 @@ namespace Team6.Controllers
             {
                 return RedirectToAction("LogOn", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -91,7 +94,15 @@ namespace Team6.Controllers
             {
                 return HttpNotFound();
             }
-            return View(officer);
+            if (officer.UserName == System.Web.HttpContext.Current.User.Identity.Name)
+            {
+                return View(officer);
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "You are only allowed to edit your profile!";
+                return RedirectToAction("Index", "Officer");
+            }
         }
 
         // POST: /Officer/Edit/5
