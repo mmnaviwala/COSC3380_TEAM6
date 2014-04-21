@@ -7,7 +7,7 @@ using Team6.Models;
 
 namespace Team6.DAL
 {
-    public class Team6Initializer : System.Data.Entity.DropCreateDatabaseAlways<Team6Context>
+    public class Team6Initializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<Team6Context>
     {
         protected override void Seed(Team6Context context)
         {
