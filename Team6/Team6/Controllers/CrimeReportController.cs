@@ -22,7 +22,7 @@ namespace Team6.Controllers
             {
                 return RedirectToAction("LogOn", "Home");
             }
-            return View(db.CrimeReports.ToList());
+            return View(db.CrimeReports.OrderBy(x => x.CaseNumber).ToList());
         }
 
         // GET: /CrimeReport/Details/5
@@ -220,7 +220,7 @@ namespace Team6.Controllers
             }
 
             var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
-            return View(crimeReports.ToList());
+            return View(crimeReports.OrderBy(x => x.CaseNumber).ToList());
         }
     }
 }

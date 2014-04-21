@@ -24,7 +24,7 @@ namespace Team6.Controllers
             }
             var errMsg = TempData["ErrorMessage"] as string;
             ViewBag.Message = errMsg;
-            return View(db.Officers.ToList());
+            return View(db.Officers.OrderBy(x => x.FirstName).ThenByDescending(x => x.LastName).ToList());
         }
 
         // GET: /Officer/Details/5
@@ -272,7 +272,7 @@ namespace Team6.Controllers
             }
 
             var officers1 = context.Officers.SqlQuery(sqlQuery);
-            return View(officers1.ToList());
+            return View(officers1.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
     }
 }

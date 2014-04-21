@@ -6,7 +6,7 @@
 
 <h2>Search Officer Result(s)</h2>
 
-<table class="table">
+<table class="table table-condensed table-hover table-responsive table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.BadgeNumber)
@@ -49,93 +49,93 @@
         HttpCookie cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
         FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
         if (ticket.Name == item.UserName)
-        { 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BadgeNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rank)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ssn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EyeColor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Height)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.OfficerID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.OfficerID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.OfficerID })
-            </td>
-        </tr>
-        
-            }
-        else 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BadgeNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ssn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EyeColor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OfficerID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.OfficerID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OfficerID })
+                </td>
+            </tr>
+
+        }
+        else
             if (ticket.UserData == "ChiefOfPolice" || ticket.UserData == "AssistantChief")
             {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BadgeNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rank)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ssn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EyeColor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Height)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.OfficerID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.OfficerID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.OfficerID })
-            </td>
-        </tr>
-    }
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BadgeNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rank)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ssn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EyeColor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Height)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.OfficerID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.OfficerID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.OfficerID })
+                    </td>
+                </tr>
+            }
     }
 
 </table>

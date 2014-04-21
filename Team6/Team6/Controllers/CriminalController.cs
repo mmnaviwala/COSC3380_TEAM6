@@ -24,7 +24,7 @@ namespace Team6.Controllers
             {
                 return RedirectToAction("LogOn", "Home");
             }
-            return View(db.Criminals.ToList());
+            return View(db.Criminals.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
 
         // GET: /Criminal/Details/5
@@ -284,7 +284,7 @@ namespace Team6.Controllers
             //}
 
             var criminals = context.Criminals.SqlQuery(sqlQuery);
-            return View(criminals.ToList());
+            return View(criminals.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
     }
 }
