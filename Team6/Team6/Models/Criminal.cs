@@ -31,16 +31,16 @@ namespace Team6.Models
 
     public enum Race
     {
-	    [Description("American Indian / Alaska Native")]
-	    AmericanIndianAlaskaNative,
+	    [Description("American Indian / Alaska Native")] 
+        AmericanIndianAlaskaNative,
 	    Asian,
-	    [Description("Black / African American")]
-	    BlackAfricanAmerican,
+	    [Description("Black / African American")] BlackAfricanAmerican,
 	    Hispanic,
 	    [Description("Native Hawaiian / Pacific Islander")]
 	    NativeHawaiianPacificIslander,
 	    White
     }
+
     public class Criminal
     {
         [Display(Name = "Criminal ID")]
