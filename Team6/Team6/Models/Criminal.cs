@@ -11,28 +11,34 @@ namespace Team6.Models
 
     public enum State
     {
-        AL, AK, AZ, AR, CA, CO, CT, DE, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY
+        None, AL, AK, AZ, AR, CA, CO, CT, DE, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY
     }
 
     public enum Gender
     {
-        Male, Female
+        None, Male, Female
     }
 
     public enum EyeColor
     {
-	    Amber, Blue, Brown, Gray, Green, Hazel
+	    None, Amber, Blue, Brown, Gray, Green, Hazel
     }
 
     public enum HairColor
     {
-	    Black, Brown, Red, Blonde, Grey, White, Bald, Other
+	    None, Black, Brown, Red, Blonde, Grey, White, Bald, Other
     }
 
     public enum Race
     {
+<<<<<<< HEAD
 	    [Description("American Indian / Alaska Native")] 
         AmericanIndianAlaskaNative,
+=======
+        None,
+	    [Description("American Indian / Alaska Native")]
+	    AmericanIndianAlaskaNative,
+>>>>>>> 26661eafe53c473838c7bc41cd0f8eb6192ff3a6
 	    Asian,
 	    [Description("Black / African American")] BlackAfricanAmerican,
 	    Hispanic,

@@ -9,6 +9,7 @@ namespace Team6.Models
 {
     public enum OffenseType
     {
+        None,
         Murder,
         Rape,
         Robbery,
@@ -48,7 +49,7 @@ namespace Team6.Models
         public string CaseNumber { get; set; }
 
         [Display(Name = "Suspect")]
-        public byte Suspect { get; set; }
+        public bool Suspect { get; set; }
 
         [Display(Name = "Offense Type")]
         public OffenseType? OffenseType { get; set; }

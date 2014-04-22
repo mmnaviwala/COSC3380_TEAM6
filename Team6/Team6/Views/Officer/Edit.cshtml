@@ -51,21 +51,21 @@
 
             </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             <div class="col-xs-4">
                 <div class="col-xs-4">
                     @Html.LabelFor(model => model.UserName)
-                    </div>
-                    @Html.EditorFor(model => model.UserName)
-                    @Html.ValidationMessageFor(model => model.UserName)
                 </div>
+                @Html.EditorFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName)
+            </div>
             <div class="col-xs-1">
                 @Html.LabelFor(model => model.Password)
-                </div>
-                @Html.EditorFor(model => model.Password)
-                @Html.ValidationMessageFor(model => model.Password)
-
             </div>
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+
+        </div>*@
 
         <div class="form-group">
             <div class="col-xs-4">

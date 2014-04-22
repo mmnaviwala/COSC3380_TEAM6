@@ -18,12 +18,20 @@ namespace Team6.Controllers
         // GET: /CrimeReport/
         public ActionResult Index()
         {
-            return View(db.CrimeReports.ToList());
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+            return View(db.CrimeReports.OrderBy(x => x.CaseNumber).ToList());
         }
 
         // GET: /CrimeReport/Details/5
         public ActionResult Details(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +47,10 @@ namespace Team6.Controllers
         // GET: /CrimeReport/Create
         public ActionResult Create()
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             return View();
         }
 
@@ -49,6 +61,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="CrimereportID,CriminalID,OfficerID,CaseNumber,Suspect,OffenseType,OffenseDate,AdmittedDate,PrisonAgency,Time")] CrimeReport crimereport)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.CrimeReports.Add(crimereport);
@@ -62,6 +78,10 @@ namespace Team6.Controllers
         // GET: /CrimeReport/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +101,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="CrimereportID,CriminalID,OfficerID,CaseNumber,Suspect,OffenseType,OffenseDate,AdmittedDate,PrisonAgency,Time")] CrimeReport crimereport)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(crimereport).State = EntityState.Modified;
@@ -93,6 +117,10 @@ namespace Team6.Controllers
         // GET: /CrimeReport/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +138,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             CrimeReport crimereport = db.CrimeReports.Find(id);
             db.CrimeReports.Remove(crimereport);
             db.SaveChanges();
@@ -123,6 +155,72 @@ namespace Team6.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult SearchCrimeReport(string criminalId, string officerId, string caseNumber, string prisonAgency, OffenseType offenseType)
+        {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+            var context = new Team6Context();
+            string sqlQuery = "SELECT * FROM dbo.CrimeReport";
+            bool cont = false;
+
+            if (string.IsNullOrEmpty(criminalId) && string.IsNullOrEmpty(officerId) && string.IsNullOrEmpty(caseNumber) && string.IsNullOrEmpty(prisonAgency) && offenseType.Equals(OffenseType.None))
+            {
+                // some error message that the user should enter at least one field
+            }
+            else
+            {
+                sqlQuery = "SELECT * FROM dbo.CrimeReport WHERE ";
+
+                if (!string.IsNullOrEmpty(criminalId))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "CriminalID LIKE \'%" + Convert.ToInt32(criminalId) + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(officerId))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "OfficerID LIKE \'%" + Convert.ToInt32(officerId) + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(caseNumber))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    caseNumber = caseNumber.Replace("'", "''");
+                    sqlQuery += "CaseNumber LIKE \'%" + caseNumber + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(prisonAgency))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    prisonAgency = prisonAgency.Replace("'", "''");
+                    sqlQuery += ("PrisonAgency LIKE \'%" + prisonAgency + "%\'");
+                    cont = true;
+                }
+
+                if (!offenseType.Equals(OffenseType.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "OffenseType = " + Convert.ToInt32(offenseType);
+                    cont = true;
+                }
+
+            }
+
+            var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
+            return View(crimeReports.OrderBy(x => x.CaseNumber).ToList());
         }
     }
 }

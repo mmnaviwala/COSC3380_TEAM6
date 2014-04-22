@@ -18,12 +18,22 @@ namespace Team6.Controllers
         // GET: /Officer/
         public ActionResult Index()
         {
-            return View(db.Officers.ToList());
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+            var errMsg = TempData["ErrorMessage"] as string;
+            ViewBag.Message = errMsg;
+            return View(db.Officers.OrderBy(x => x.FirstName).ThenByDescending(x => x.LastName).ToList());
         }
 
         // GET: /Officer/Details/5
         public ActionResult Details(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +49,10 @@ namespace Team6.Controllers
         // GET: /Officer/Create
         public ActionResult Create()
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             return View();
         }
 
@@ -49,6 +63,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Officers.Add(officer);
@@ -62,6 +80,11 @@ namespace Team6.Controllers
         // GET: /Officer/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -71,7 +94,15 @@ namespace Team6.Controllers
             {
                 return HttpNotFound();
             }
-            return View(officer);
+            if (officer.UserName == System.Web.HttpContext.Current.User.Identity.Name)
+            {
+                return View(officer);
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "You are only allowed to edit your profile!";
+                return RedirectToAction("Index", "Officer");
+            }
         }
 
         // POST: /Officer/Edit/5
@@ -81,6 +112,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(officer).State = EntityState.Modified;
@@ -93,6 +128,10 @@ namespace Team6.Controllers
         // GET: /Officer/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +149,10 @@ namespace Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
             Officer officer = db.Officers.Find(id);
             db.Officers.Remove(officer);
             db.SaveChanges();
@@ -123,6 +166,113 @@ namespace Team6.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult SearchOfficer (string firstName, string lastName, string userName, string email, string phoneNumber, string ssn, string badgeNumber, Rank rank, Gender gender, EyeColor eyeColor)
+        {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+            var context = new Team6Context();
+            string sqlQuery = "SELECT * FROM dbo.Officer";
+            bool cont = false;
+
+            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && string.IsNullOrEmpty(userName) && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phoneNumber) && string.IsNullOrEmpty(ssn) && string.IsNullOrEmpty(badgeNumber) && rank.Equals(Rank.None) && gender.Equals(Gender.None) && eyeColor.Equals(EyeColor.None))
+            {
+                // some error message that the user should enter at least one field
+            }
+            else
+            {
+                sqlQuery = "SELECT * FROM dbo.Officer WHERE ";
+                
+                if (!string.IsNullOrEmpty(firstName))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    firstName = firstName.Replace("'", "''");
+                    sqlQuery += "FirstName LIKE \'%" + firstName + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(lastName))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    lastName = lastName.Replace("'", "''");
+                    sqlQuery += "LastName LIKE \'%" + lastName + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(userName))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    userName.Replace("'", "''");
+                    sqlQuery += "UserName LIKE \'%" + userName + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(email))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    email = email.Replace("'", "''");
+                    sqlQuery += "Email LIKE \'%" + email + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(phoneNumber))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "PhoneNumber LIKE \'%" + Convert.ToInt32(phoneNumber) + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(ssn))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Ssn LIKE \'%" + Convert.ToInt32(ssn) + "%\'";
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(badgeNumber))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "BadgeNumber LIKE \'%" + Convert.ToInt32(badgeNumber) + "%\'";
+                    cont = true;
+                }
+
+                if (!rank.Equals(Rank.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Rank = " + Convert.ToInt32(rank);
+                    cont = true;
+                }
+
+                if (!gender.Equals(Gender.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "Gender = " + Convert.ToInt32(gender);
+                    cont = true;
+                }
+
+                if (!eyeColor.Equals(EyeColor.None))
+                {
+                    if (cont)
+                        sqlQuery += " AND ";
+                    sqlQuery += "EyeColor = " + Convert.ToInt32(eyeColor);
+                    cont = true;
+                }
+            }
+
+            var officers1 = context.Officers.SqlQuery(sqlQuery);
+            return View(officers1.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
     }
 }

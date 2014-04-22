@@ -1,29 +1,11 @@
 ﻿@model IEnumerable<Team6.Models.Officer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Search Officer";
 }
 
+<h2>Search Officer Result(s)</h2>
 
-@{
-    if (ViewBag.Message != null)
-    {
-        <h3 class="alert alert-danger">@ViewBag.Message</h3>
-    }
-}
-
-<h2>Index</h2>
-@{
-    HttpCookie cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
-
-    if (ticket.UserData == "ChiefOfPolice" || ticket.UserData == "AssistantChief")
-    { 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-}
-}
 <table class="table table-condensed table-hover table-responsive table-bordered">
     <tr>
         <th>
@@ -64,7 +46,8 @@
 
     @foreach (var item in Model)
     {
-
+        HttpCookie cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+        FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
         if (ticket.Name == item.UserName)
         {
             <tr>
@@ -102,6 +85,7 @@
                     @Html.DisplayFor(modelItem => item.Gender)
                 </td>
                 <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OfficerID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.OfficerID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.OfficerID })
                 </td>
@@ -146,6 +130,7 @@
                         @Html.DisplayFor(modelItem => item.Gender)
                     </td>
                     <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.OfficerID }) |
                         @Html.ActionLink("Details", "Details", new { id = item.OfficerID }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.OfficerID })
                     </td>
@@ -153,5 +138,5 @@
             }
     }
 
-
 </table>
+

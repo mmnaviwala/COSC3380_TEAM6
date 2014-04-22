@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Team6.Models.CrimeReport>
+
+@{
+    ViewBag.Title = "Search Crime Report";
+}
+
+<h2>Search Crime Report Result(s)</h2>
+
+<table class="table table-condensed table-hover table-responsive table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CriminalID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CaseNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suspect)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OffenseType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OffenseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdmittedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrisonAgency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CriminalID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suspect)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OffenseType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OffenseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdmittedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrisonAgency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CrimereportID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CrimereportID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CrimereportID })
+            </td>
+        </tr>
+    }
+
+</table>
+
