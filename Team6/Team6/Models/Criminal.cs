@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using Team6.Models;
 
 namespace Team6.Models
 {
@@ -30,21 +31,23 @@ namespace Team6.Models
     }
 
     public enum Race
-    {
+    {/*
 <<<<<<< HEAD
 	    [Description("American Indian / Alaska Native")] 
         AmericanIndianAlaskaNative,
 =======
-        None,
+        
 	    [Description("American Indian / Alaska Native")]
 	    AmericanIndianAlaskaNative,
->>>>>>> 26661eafe53c473838c7bc41cd0f8eb6192ff3a6
+>>>>>>> 26661eafe53c473838c7bc41cd0f8eb6192ff3a6*/
 	    Asian,
 	    [Description("Black / African American")] BlackAfricanAmerican,
 	    Hispanic,
 	    [Description("Native Hawaiian / Pacific Islander")]
 	    NativeHawaiianPacificIslander,
-	    White
+	    White,
+        None
+
     }
 
     public class Criminal
