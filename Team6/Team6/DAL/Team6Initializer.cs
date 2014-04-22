@@ -13,7 +13,7 @@ namespace Team6.DAL
         {
             var criminals = new List<Criminal>
             {
-                new Criminal{CriminalID=123456,FirstName="John",LastName="Doe",DateOfBirth=DateTime.Parse("1971-05-20"),EyeColor=EyeColor.Brown, Weight=(155),Height=(70),Gender=Gender.Male,Ssn=(111223333),HairColor=HairColor.Brown,Race=Race.White,Address=("111 A-Street"),ZipCode=(77777)},
+                new Criminal{CriminalID=123456,FirstName="John",LastName="Smith",DateOfBirth=DateTime.Parse("1971-05-20"),EyeColor=EyeColor.Brown, Weight=(155),Height=(70),Gender=Gender.Male,Ssn=(111223333),HairColor=HairColor.Brown,Race=Race.White,Address=("111 A-Street"),ZipCode=(77777)},
                 new Criminal{CriminalID=112233,FirstName="Carl",LastName="Johnson",DateOfBirth=DateTime.Parse("1980-11-18"),EyeColor=EyeColor.Gray,Weight=(130),Height=(55),Gender=Gender.Male,Ssn=(222334444),HairColor=HairColor.Black,Race=Race.White,Address=("222 B-Street"),ZipCode=(88888)},
                 new Criminal{CriminalID=223344,FirstName="Xavier",LastName="Jones",DateOfBirth=DateTime.Parse("1983-02-10"),EyeColor=EyeColor.Green,Weight=(147),Height=(80),Gender=Gender.Male,Ssn=(333445555),HairColor=HairColor.Bald,Race=Race.BlackAfricanAmerican,Address=("333 C-Street"),ZipCode=(99999)},
                 new Criminal{CriminalID=445566,FirstName="Adam",LastName="Rivet",DateOfBirth=DateTime.Parse("1988-04-16"),EyeColor=EyeColor.Brown,Weight=(180),Height=(68),Gender=Gender.Male,Ssn=(444556666),HairColor=HairColor.Brown,Race=Race.White,Address=("444 D-Street"),ZipCode=(11111)},
