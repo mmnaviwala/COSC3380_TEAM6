@@ -222,5 +222,102 @@ namespace Team6.Controllers
             var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
             return View(crimeReports.OrderBy(x => x.CaseNumber).ToList());
         }
+
+
+
+        public ActionResult CrimeReportReports(string criminalId, string officerId, string caseNumber, string prisonAgency, OffenseType offenseType)
+        {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+            var context = new Team6Context();
+            string sqlQuery = "SELECT * FROM dbo.CrimeReport";
+            bool cont = false;
+            string viewBagMessageString = "";
+
+            if (string.IsNullOrEmpty(criminalId) && string.IsNullOrEmpty(officerId) && string.IsNullOrEmpty(caseNumber) && string.IsNullOrEmpty(prisonAgency) && offenseType.Equals(OffenseType.None))
+            {
+                // some error message that the user should enter at least one field
+            }
+            else
+            {
+                sqlQuery = "SELECT * FROM dbo.CrimeReport WHERE ";
+                viewBagMessageString = "<b>Parameters:</b> ";
+
+                if (!string.IsNullOrEmpty(criminalId))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "CriminalID LIKE \'%" + Convert.ToInt32(criminalId) + "%\'";
+                    viewBagMessageString += "Criminal ID = " + criminalId;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(officerId))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "OfficerID LIKE \'%" + Convert.ToInt32(officerId) + "%\'";
+                    viewBagMessageString += "Office ID = " + officerId;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(caseNumber))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    caseNumber = caseNumber.Replace("'", "''");
+                    sqlQuery += "CaseNumber LIKE \'%" + caseNumber + "%\'";
+                    viewBagMessageString += "Case Number = " + caseNumber;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(prisonAgency))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    prisonAgency = prisonAgency.Replace("'", "''");
+                    sqlQuery += ("PrisonAgency LIKE \'%" + prisonAgency + "%\'");
+                    viewBagMessageString += "Prison Agency = " + prisonAgency;
+                    cont = true;
+                }
+
+                if (!offenseType.Equals(OffenseType.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "OffenseType = " + Convert.ToInt32(offenseType);
+                    viewBagMessageString += "Offense Type = " + offenseType;
+                    cont = true;
+                }
+
+            }
+
+            var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
+            if (viewBagMessageString != "")
+            {
+                viewBagMessageString += "<br><b>Count:</b> " + crimeReports.Count();
+            }
+
+            ViewBag.Message = viewBagMessageString;
+            return View(crimeReports.OrderBy(x => x.CaseNumber).ToList());
+        }
+
     }
 }

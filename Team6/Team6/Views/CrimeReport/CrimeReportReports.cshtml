@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Team6.Models.CrimeReport>
+
+@{
+    ViewBag.Title = "Crime Report Reports";
+}
+
+<h2 style="width:100%;background-color:#bcbcbc;padding:5px;text-align:center;">Crime Report Reports</h2>
+<br />
+@{
+    if (@ViewBag.Message != "")
+    {
+        <h3>@Html.Raw(ViewBag.Message)</h3>
+    }
+}
+
+@foreach (var item in Model)
+{
+    <br /><hr /><br />
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Criminal ID</b>
+        </div>
+        <div class="col-xs-3">
+            @item.CriminalID
+        </div>
+        <div class="col-xs-3">
+            <b>Officer ID</b>
+        </div>
+        <div class="col-xs-3">
+            @item.OfficerID
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Case Number</b>
+        </div>
+        <div class="col-xs-3">
+            @item.CaseNumber
+        </div>
+        <div class="col-xs-3">
+            <b>Suspect</b>
+        </div>
+        <div class="col-xs-3">
+            @item.Suspect
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Offense Type</b>
+        </div>
+        <div class="col-xs-3">
+            @item.OffenseType
+        </div>
+        <div class="col-xs-3">
+            <b>Offense Date</b>
+        </div>
+        <div class="col-xs-3">
+            @item.OffenseDate
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Admitted Date</b>
+        </div>
+        <div class="col-xs-3">
+            @item.AdmittedDate
+        </div>
+        <div class="col-xs-3">
+            <b>Prison Agency</b>
+        </div>
+        <div class="col-xs-3">
+            @item.PrisonAgency
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Time</b>
+        </div>
+        <div class="col-xs-3">
+            @item.Time
+        </div>
+    </div>
+
+}
+
+
+
