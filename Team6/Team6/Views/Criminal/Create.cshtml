@@ -56,7 +56,7 @@
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Gender)</label>
             <div class="col-sm-4">
                 @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
-                @Html.ValidationMessageFor(model => model.LastName)
+
             </div>
         </div>
 
@@ -120,13 +120,13 @@
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.ZipCode)</label>
             <div class="col-sm-4">
                 @Html.EditorFor(model => model.ZipCode)
-                @Html.ValidationMessageFor(model => model.ZipCode)
+ 
             </div>
 
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.PhoneNumber)</label>
             <div class="col-sm-4">
                 @Html.EditorFor(model => model.PhoneNumber)
-                @Html.ValidationMessageFor(model => model.PhoneNumber)
+               @Html.ValidationMessageFor(model => model.PhoneNumber)
             </div>
         </div>
 
