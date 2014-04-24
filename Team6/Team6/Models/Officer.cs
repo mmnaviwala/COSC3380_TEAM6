@@ -35,7 +35,6 @@ namespace Team6.Models
         public int OfficerID { get; set; }
 
         [Display(Name = "Badge Number")]
-        [Required(ErrorMessage = "Badge Number is required")]
         public int BadgeNumber { get; set; }
 
         [Display(Name = "Rank")]
@@ -43,47 +42,34 @@ namespace Team6.Models
 
         [StringLength(30)]
         [Display(Name = "First Name")]
-        [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid First Name")]
-        [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
 
         [StringLength(30)]
         [Display(Name = "Last Name")]
-        [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid Last Name")]
-        [Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
 
         [StringLength(15)]
         [Display(Name = "User Name")]
-        [Required(ErrorMessage = "User Name is required")]
         public string UserName { get; set; }
 
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
 
         [Display(Name = "Phone Number")]
-        [RegularExpression("^([0-9 ]+)$", ErrorMessage = "Invalid Phone Number")]
-        [Required(ErrorMessage = "Phone Number is required")]
         public int PhoneNumber { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
 
         [Display(Name = "Social Security Number")]
-        [RegularExpression("^([0-9 ]+)$", ErrorMessage = "Invalid Social Security")]
-        [Required(ErrorMessage = "Social Secrutiy is required")]
         public int Ssn { get; set; }
 
         [Display(Name = "Eye Color")]
         public EyeColor? EyeColor { get; set; }
 
         [Display(Name = "Height")]
-        [RegularExpression("^([0-9 ]+)$", ErrorMessage = "Invalid Height")]
-        [Required(ErrorMessage = "Height is required")]
         public int Height { get; set; }
 
         [Display(Name = "Gender")]
