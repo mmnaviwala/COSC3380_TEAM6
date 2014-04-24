@@ -76,6 +76,7 @@ namespace Team6.Models
         public Gender? Gender { get; set; }
 
 
+
         //public virtual CrimeReport CrimeReport { get; set; }
         public virtual ICollection<CrimeReport> CrimeReports { get; set; }
 
