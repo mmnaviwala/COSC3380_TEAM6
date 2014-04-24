@@ -20,127 +20,147 @@
         @Html.HiddenFor(model => model.CriminalID)
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.FirstName)</label>
-            <div class="col-sm-4">
-                @Html.EditorFor(model => model.FirstName)
-                @Html.ValidationMessageFor(model => model.FirstName)
-            </div>
-
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.LastName)</label>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.FirstName)
+                    </div>
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.LastName)
+                </div>
                 @Html.EditorFor(model => model.LastName)
                 @Html.ValidationMessageFor(model => model.LastName)
+
             </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Height)</label>
-            <div class="col-sm-4">
-                @Html.EditorFor(model => model.Height)
-                @Html.ValidationMessageFor(model => model.Height)
-            </div>
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.Height)
+                    </div>
+                    @Html.EditorFor(model => model.Height)
+                    @Html.ValidationMessageFor(model => model.Height)
+                </div>
 
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Weight)</label>
-            <div class="col-sm-4">
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.Weight)
+                </div>
                 @Html.EditorFor(model => model.Weight)
                 @Html.ValidationMessageFor(model => model.Weight)
+
             </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.EyeColor)</label>
-            <div class="col-sm-4">
-                @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
-                @Html.ValidationMessageFor(model => model.EyeColor)
-            </div>
-
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Gender)</label>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.EyeColor)
+                    </div>
+                    @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
+                    @Html.ValidationMessageFor(model => model.EyeColor)
+                </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.Gender)
+                </div>
                 @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.Gender)
+
             </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Ssn)</label>
-            <div class="col-sm-4">
-                @Html.EditorFor(model => model.Ssn)
-                @Html.ValidationMessageFor(model => model.Ssn)
-            </div>
-
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Alias)</label>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.Ssn)
+                    </div>
+                    @Html.EditorFor(model => model.Ssn)
+                    @Html.ValidationMessageFor(model => model.Ssn)
+                </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.Alias)
+                </div>
                 @Html.EditorFor(model => model.Alias)
                 @Html.ValidationMessageFor(model => model.Alias)
+
             </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.HairColor)</label>
-            <div class="col-sm-4">
-                @Html.DropDownList("Hair Color", enumHelper.GetSelectedItemList<HairColor>(), new { style = "width:160px" })
-                @Html.ValidationMessageFor(model => model.HairColor)
-            </div>
-
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.KnownAffiliates)</label>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.HairColor)
+                    </div>
+                    @Html.DropDownList("Hair Color", enumHelper.GetSelectedItemList<HairColor>(), new { style = "width:160px" })
+                    @Html.ValidationMessageFor(model => model.HairColor)
+                </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.KnownAffiliates)
+                </div>
                 @Html.EditorFor(model => model.KnownAffiliates)
                 @Html.ValidationMessageFor(model => model.KnownAffiliates)
+
             </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.DateOfBirth)</label>
-            <div class="col-sm-4">
-                @Html.EditorFor(model => model.DateOfBirth)
-                @Html.ValidationMessageFor(model => model.DateOfBirth)
-            </div>
-
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Race)</label>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.DateOfBirth)
+                    </div>
+                    @Html.EditorFor(model => model.DateOfBirth)
+                    @Html.ValidationMessageFor(model => model.DateOfBirth)
+                </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.Race)
+                </div>
                 @Html.DropDownList("Race", enumHelper.GetSelectedItemList<Race>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.Race)
+
             </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Address)</label>
-            <div class="col-sm-4">
-                @Html.EditorFor(model => model.Address)
-                @Html.ValidationMessageFor(model => model.Address)
-            </div>
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.Address)
+                    </div>
+                    @Html.EditorFor(model => model.Address)
+                    @Html.ValidationMessageFor(model => model.Address)
+                </div>
 
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.State)</label>
-            <div class="col-sm-4">
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.State)
+                </div>
                 @Html.DropDownList("State", enumHelper.GetSelectedItemList<State>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.State)
+
             </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.ZipCode)</label>
-            <div class="col-sm-4">
-                @Html.EditorFor(model => model.ZipCode)
-
-            </div>
-
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.PhoneNumber)</label>
-            <div class="col-sm-4">
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.ZipCode)
+                    </div>
+                    @Html.EditorFor(model => model.ZipCode)
+                    @Html.ValidationMessageFor(model => model.ZipCode)
+                    </div>
+            <div class="col-xs-1">
+                @Html.LabelFor(model => model.PhoneNumber)
+                </div>
                 @Html.EditorFor(model => model.PhoneNumber)
+                @Html.ValidationMessageFor(model => model.PhoneNumber)
 
             </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.misc)</label>
-            <div class="col-sm-10">
-                @Html.EditorFor(model => model.misc)
-                @Html.ValidationMessageFor(model => model.misc)
-            </div>
-        </div>
+            <div class="col-xs-4">
+                <div class="col-xs-4">
+                    @Html.LabelFor(model => model.misc)
+                    </div>
+                    @Html.EditorFor(model => model.misc)
+                    @Html.ValidationMessageFor(model => model.misc)
+                </div>
+                </div>
 
                 <div class="form-group">
-                    <div class="col-md-offset-10 col-md-10">
+                    <div class="col-md-offset-6 col-md-10">
                         <input type="submit" value="Save" class="btn btn-default" />
                     </div>
                 </div>
