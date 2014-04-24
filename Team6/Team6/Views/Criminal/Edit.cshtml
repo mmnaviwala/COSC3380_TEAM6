@@ -139,13 +139,13 @@
                     @Html.LabelFor(model => model.ZipCode)
                     </div>
                     @Html.EditorFor(model => model.ZipCode)
-                 
+                    @Html.ValidationMessageFor(model => model.ZipCode)
                     </div>
             <div class="col-xs-1">
                 @Html.LabelFor(model => model.PhoneNumber)
                 </div>
                 @Html.EditorFor(model => model.PhoneNumber)
-
+                @Html.ValidationMessageFor(model => model.PhoneNumber)
 
             </div>
 
