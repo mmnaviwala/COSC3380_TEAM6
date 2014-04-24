@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Team6.Models.CrimeReport>
+
+@{
+    ViewBag.Title = "CrimeReportSheet";
+}
+
+<center><h2>Crime Report Sheet</h2></center>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CriminalID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CaseNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suspect)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OffenseType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OffenseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdmittedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrisonAgency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CriminalID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suspect)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OffenseType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OffenseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdmittedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrisonAgency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
