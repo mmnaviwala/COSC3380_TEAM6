@@ -36,7 +36,6 @@ namespace Team6.Models
     public class CrimeReport
     {
         [Display(Name = "Crime Report ID")]
-        [Required(ErrorMessage = "Crime Report ID is required")]
         public int CrimereportID { get; set; }
 
         [Display(Name = "Criminal ID")]
@@ -61,13 +60,13 @@ namespace Team6.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Offense Date")]
-        [Required(ErrorMessage = "Offense Date is required")]
+        [Required(ErrorMessage = "Offense is required")]
         public DateTime OffenseDate { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Admitted Date")]
-        [Required(ErrorMessage = "Admitted Dateis required")]
+        [Required(ErrorMessage = "Admitted is required")]
         public DateTime AdmittedDate { get; set; }
 
         [StringLength(50)]
@@ -75,8 +74,8 @@ namespace Team6.Models
         public string PrisonAgency { get; set; }
 
         [DataType(DataType.Time)]
+        [Required(ErrorMessage = "Time Name is required")]
         [Display(Name = "Time")]
-        [Required(ErrorMessage = "Time is required")]
         public DateTime Time { get; set; }
 
 

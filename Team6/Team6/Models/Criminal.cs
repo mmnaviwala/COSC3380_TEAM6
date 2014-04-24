@@ -54,17 +54,19 @@ namespace Team6.Models
     {
         [Display(Name = "Criminal ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Required(ErrorMessage = "Criminal ID is required")]
         public int CriminalID { get; set; }
 
         [StringLength(30)]
         [Display(Name = "First Name")]
+        [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid First Name")]
         [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
 
+
         [StringLength(30)]
         [Display(Name = "Last Name")]
-       [Required(ErrorMessage = "Last Name is required")]
+        [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid Last Name")]
+        [Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
 
         [Display(Name = "Eye Color")]
@@ -75,8 +77,12 @@ namespace Team6.Models
         public int Weight { get; set; }
 
         [Display(Name = "Height")]
-        [Required(ErrorMessage = "Height ID is required")]
+        [Required(ErrorMessage = "Height is required")]
         public int Height { get; set; }
+
+
+        [Display(Name = "Gender")]
+        public Gender? Gender { get; set; }
 
         [Display(Name = "Social Security Number")]
         [Required(ErrorMessage = "Social Security Number is required")]
@@ -91,13 +97,10 @@ namespace Team6.Models
         [Display(Name = "Known Affiliates")]
         public string KnownAffiliates { get; set; }
 
-        [Display(Name = "Gender")]
-        public Gender? Gender { get; set; }
-
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Of Birth")]
-        [Required(ErrorMessage = "Date Of Birth is required")]
+        [Required(ErrorMessage = "Date of Birth is required")]
         public DateTime DateOfBirth { get; set; }
 
         [Display(Name = "Race")]
