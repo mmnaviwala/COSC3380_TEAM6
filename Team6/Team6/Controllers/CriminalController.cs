@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using Team6.Models;
 using Team6.DAL;
 using System.IO;
-
 namespace Team6.Controllers
 {
     public class CriminalController : Controller
@@ -61,12 +60,16 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal)
+        public ActionResult Create([Bind(Include="CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal, FormCollection formCollection)
         {
             if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
             {
                 return RedirectToAction("LogOn", "Home");
             }
+            string Heightvalue = formCollection["HeightFeet"];
+            string Heightvalue2 = formCollection["HeightInches"];
+            
+            criminal.Height = Convert.ToInt32( Heightvalue) * 12 + Convert.ToInt32(Heightvalue2);
             if (ModelState.IsValid)
             {
                 db.Criminals.Add(criminal);

@@ -35,8 +35,39 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Height)</label>
             <div class="col-sm-4">
-                @Html.EditorFor(model => model.Height)
-                @Html.ValidationMessageFor(model => model.Height)
+                @using (Html.BeginForm("NewHeight", "Admin"))
+                {
+                    <select id="HeightFeet"  name="HeightFeet" >
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <select id="HeightInches"  name="HeightInches">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                    </select>
+                }
+            @Html.ValidationMessageFor(model => model.Height)
             </div>
 
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Weight)</label>
