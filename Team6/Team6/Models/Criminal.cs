@@ -40,13 +40,13 @@ namespace Team6.Models
 	    [Description("American Indian / Alaska Native")]
 	    AmericanIndianAlaskaNative,
 >>>>>>> 26661eafe53c473838c7bc41cd0f8eb6192ff3a6*/
-	    Asian,
+        [Description("American Indian / Alaska Native")] AmericanIndianAlaskaNative,
+        [Description("Asian")] Asian,
 	    [Description("Black / African American")] BlackAfricanAmerican,
-	    Hispanic,
-	    [Description("Native Hawaiian / Pacific Islander")]
-	    NativeHawaiianPacificIslander,
-	    White,
-        None
+        [Description("Hispanic")] Hispanic,
+	    [Description("Native Hawaiian / Pacific Islander")] NativeHawaiianPacificIslander,
+        [Description("White")] White,
+        [Description("None")] None
 
     }
 
