@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Team6.Models;
 using Team6.DAL;
 using System.IO;
+using System.Web.Helpers;
 namespace Team6.Controllers
 {
     public class CriminalController : Controller
@@ -54,18 +55,31 @@ namespace Team6.Controllers
             }
             return View();
         }
+        
 
         // POST: /Criminal/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal, FormCollection formCollection)
+        public ActionResult Create([Bind(Include = "CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc,Photo")] Criminal criminal, FormCollection formCollection, HttpPostedFileBase file)
         {
             if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
             {
                 return RedirectToAction("LogOn", "Home");
             }
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Photos"), fileName);
+                file.SaveAs(path);
+                criminal.image = "~/Photos/" + fileName;
+            }
+            if (criminal.image == null)
+            {
+                criminal.image="~/Photos/unknown.jpg";
+            }
+            
             string Heightvalue = formCollection["HeightFeet"];
             string Heightvalue2 = formCollection["HeightInches"];
             
@@ -104,12 +118,28 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal)
+        public ActionResult Edit([Bind(Include = "CriminalID,FirstName,LastName,EyeColor,Weight,Height,Gender,Ssn,Alias,HairColor,KnownAffiliates,DateOfBirth,Race,Address,State,ZipCode,PhoneNumber,misc")] Criminal criminal, FormCollection formCollection, HttpPostedFileBase file)
         {
             if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
             {
                 return RedirectToAction("LogOn", "Home");
             }
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Photos"), fileName);
+                file.SaveAs(path);
+                criminal.image = "~/Photos/" + fileName;
+            }
+            if (criminal.image == null)
+            {
+                criminal.image = "~/Photos/unknown.jpg";
+            }
+
+            string Heightvalue = formCollection["HeightFeet"];
+            string Heightvalue2 = formCollection["HeightInches"];
+
+            criminal.Height = Convert.ToInt32(Heightvalue) * 12 + Convert.ToInt32(Heightvalue2);
             if (ModelState.IsValid)
             {
                 db.Entry(criminal).State = EntityState.Modified;

@@ -1,5 +1,6 @@
 ﻿@using Team6.helpers.enumhelper
 @using Team6.Models
+@using Microsoft.Web
 @model Team6.Models.Criminal
 
 @{
@@ -9,7 +10,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create" ,"Criminal", FormMethod.Post, new { EncType = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -37,7 +38,7 @@
             <div class="col-sm-4">
                 @using (Html.BeginForm("NewHeight", "Admin"))
                 {
-                    <select id="HeightFeet"  name="HeightFeet" >
+                    <select id="HeightFeet" name="HeightFeet">
                         <option>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -52,7 +53,7 @@
                         <option>11</option>
                         <option>12</option>
                     </select>
-                    <select id="HeightInches"  name="HeightInches">
+                    <select id="HeightInches" name="HeightInches">
                         <option>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -67,7 +68,7 @@
                         <option>11</option>
                     </select>
                 }
-            @Html.ValidationMessageFor(model => model.Height)
+                @Html.ValidationMessageFor(model => model.Height)
             </div>
 
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Weight)</label>
@@ -80,13 +81,13 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.EyeColor)</label>
             <div class="col-sm-4">
-                @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model => model.EyeColor, enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.EyeColor)
             </div>
 
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Gender)</label>
             <div class="col-sm-4">
-                @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model => model.Gender, enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.LastName)
             </div>
         </div>
@@ -108,7 +109,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.HairColor)</label>
             <div class="col-sm-4">
-                @Html.DropDownList("Hair Color", enumHelper.GetSelectedItemList<HairColor>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model => model.HairColor, enumHelper.GetSelectedItemList<HairColor>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.HairColor)
             </div>
 
@@ -128,7 +129,7 @@
 
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.Race)</label>
             <div class="col-sm-4">
-                @Html.DropDownList("Race", enumHelper.GetSelectedItemList<Race>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model => model.Race, enumHelper.GetSelectedItemList<Race>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.Race)
             </div>
         </div>
@@ -142,7 +143,7 @@
 
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.State)</label>
             <div class="col-sm-4">
-                @Html.DropDownList("State", enumHelper.GetSelectedItemList<State>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model => model.State, enumHelper.GetSelectedItemList<State>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.State)
             </div>
         </div>
@@ -170,18 +171,37 @@
         </div>
 
         <div class="form-group">
+            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.misc)</label>
+            <div class="col-sm-10">
+                
+
+                    <label for="file">Filename:</label>
+                    <input type="file" name="file" id="file" />
+
+                <!--
+                    @using (Html.BeginForm("Create", "Profile", FormMethod.Post, new { enctype = "multipart/form-data", id = "frm_profile" }))
+                {
+                    @Html.LabelFor(model => model.image)
+                    @Html.TextBoxFor(model => model.image, new { type = "file", accept = "image/*" }) 
+                    @Html.ValidationMessageFor(model => model.image)
+                }
+                -->
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-sm-offset-10col-sm-10">
-                <button type="submit" class="btn btn-default">Create</button>
+                <input type="submit" class="btn btn-default">
             </div>
         </div>
 
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

@@ -122,6 +122,11 @@ namespace Team6.Models
         [Display(Name = "Miscellaneous")]
         public string misc { get; set; }
 
+        [Display(Name = "image")]
+        public string image { get; set; }
+
+        [Display(Name = "alt text")]
+        public string AlternateText { get; set; }
 
         //public virtual CrimeReport CrimeReport { get; set; }
         public virtual ICollection<CrimeReport> CrimeReports { get; set; }

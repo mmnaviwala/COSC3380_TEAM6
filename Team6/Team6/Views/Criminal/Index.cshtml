@@ -1,5 +1,6 @@
-﻿@model IEnumerable<Team6.Models.Criminal>
-
+﻿
+@model IEnumerable<Team6.Models.Criminal>
+@using Team6.helpers.CustomHtmlHelper;
 @{
     ViewBag.Title = "Index";
 }
@@ -70,6 +71,8 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
+                <br/>
+                @Html.Image(item.image,item.AlternateText)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
