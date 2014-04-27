@@ -35,13 +35,15 @@ namespace Team6.Models
         public int OfficerID { get; set; }
 
         [Display(Name = "Badge Number")]
+        [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Badge Number")]
+       [Required(ErrorMessage = "Badge Number is required")]
         public int BadgeNumber { get; set; }
 
         [Display(Name = "Rank")]
         public Rank? Rank { get; set; }
 
         [StringLength(30)]
-        [Display(Name = "First Name")]
+        [Display(Name = "First Name")] 
         public string FirstName { get; set; }
 
         [StringLength(30)]
@@ -50,13 +52,17 @@ namespace Team6.Models
 
         [StringLength(15)]
         [Display(Name = "User Name")]
+        [Required(ErrorMessage = "User Name is required")]
         public string UserName { get; set; }
 
         [Display(Name = "Password")]
+        [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Display(Name = "Phone Number")]
+        [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Phone Number")]
+        [Required(ErrorMessage = "Phone Number is required")]
         public int PhoneNumber { get; set; }
 
         [StringLength(50)]
@@ -64,6 +70,8 @@ namespace Team6.Models
         public string Email { get; set; }
 
         [Display(Name = "Social Security Number")]
+        [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Badge Number")]
+        [Required(ErrorMessage = "Social Security Number is required")]
         public int Ssn { get; set; }
 
         [Display(Name = "Eye Color")]

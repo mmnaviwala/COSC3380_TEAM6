@@ -85,6 +85,7 @@ namespace Team6.Models
         public Gender? Gender { get; set; }
 
         [Display(Name = "Social Security Number")]
+        [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Social Security Number")]
         [Required(ErrorMessage = "Social Security Number is required")]
         public int Ssn { get; set; }
 

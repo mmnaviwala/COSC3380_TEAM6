@@ -39,10 +39,12 @@ namespace Team6.Models
         public int CrimereportID { get; set; }
 
         [Display(Name = "Criminal ID")]
+        [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Criminal ID")]
         [Required(ErrorMessage = "Criminal ID is required")]
         public int CriminalID { get; set; }
 
         [Display(Name = "Officer ID")]
+        [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Officer ID")]
         [Required(ErrorMessage = "Officer ID is required")]
         public int OfficerID { get; set; }
 
