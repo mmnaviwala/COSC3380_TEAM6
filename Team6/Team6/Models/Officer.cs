@@ -43,12 +43,14 @@ namespace Team6.Models
         public Rank? Rank { get; set; }
 
         [StringLength(30)]
-        [Display(Name = "First Name")] 
+        [Display(Name = "First Name")]
+        [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid First Name")]
         [Required(ErrorMessage="required")]
         public string FirstName { get; set; }
 
         [StringLength(30)]
         [Display(Name = "Last Name")]
+        [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid First Name")]
         [Required(ErrorMessage = "required")]
         public string LastName { get; set; }
 
