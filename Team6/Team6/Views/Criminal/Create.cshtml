@@ -4,7 +4,7 @@
 @model Team6.Models.Criminal
 
 @{
-    ViewBag.Title = "Create new criminals";
+    ViewBag.Title = "Create new criminal";
 }
 
 <h2>Create new criminal</h2>
@@ -140,30 +140,36 @@
                 @Html.ValidationMessageFor(model => model.Address)
             </div>
 
+            <label class="col-sm-2 control-label">@Html.LabelFor(model => model.City)</label>
+            <div class="col-sm-4">
+                @Html.EditorFor(model => model.City)
+                @Html.ValidationMessageFor(model => model.City)
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.State)</label>
             <div class="col-sm-4">
                 @Html.DropDownListFor(model => model.State, enumHelper.GetSelectedItemList<State>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.State)
             </div>
-        </div>
 
-        <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.ZipCode)</label>
             <div class="col-sm-4">
                 @Html.EditorFor(model => model.ZipCode)
                 @Html.ValidationMessageFor(model => model.ZipCode)
             </div>
+        </div>
 
+        <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.PhoneNumber)</label>
             <div class="col-sm-4">
                 @Html.EditorFor(model => model.PhoneNumber)
                 @Html.ValidationMessageFor(model => model.PhoneNumber)
             </div>
-        </div>
 
-        <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.misc)</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 @Html.EditorFor(model => model.misc)
                 @Html.ValidationMessageFor(model => model.misc)
             </div>

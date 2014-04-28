@@ -22,7 +22,7 @@ namespace Team6.Models
 
     public enum EyeColor
     {
-	    None, Amber, Blue, Brown, Gray, Green, Hazel
+	    None, Amber, Blue, Brown, Black, Gray, Green, Hazel
     }
 
     public enum HairColor
@@ -32,14 +32,13 @@ namespace Team6.Models
 
     public enum Race
     {
+        [Description("None")] None
         [Description("American Indian / Alaska Native")] AmericanIndianAlaskaNative,
         [Description("Asian")] Asian,
 	    [Description("Black / African American")] BlackAfricanAmerican,
         [Description("Hispanic")] Hispanic,
 	    [Description("Native Hawaiian / Pacific Islander")] NativeHawaiianPacificIslander,
         [Description("White")] White,
-        [Description("None")] None
-
     }
 
     public class Criminal
@@ -103,11 +102,14 @@ namespace Team6.Models
         [Display(Name = "Address")]
         public string Address { get; set; }
 
-        [Display(Name = "State")]
-        public State? State { get; set; }
-
         [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
+
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Display(Name = "State")]
+        public State? State { get; set; }
 
         [Display(Name = "Phone Number")]
         public int PhoneNumber { get; set; }
