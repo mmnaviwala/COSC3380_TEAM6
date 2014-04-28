@@ -1,14 +1,13 @@
 ﻿@model Team6.Models.Officer
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Officer details";
 }
 
-<h2>Details</h2>
+<h2>Officer Details</h2>
+<hr />
 
 <div>
-    <h4>Officer</h4>
-	<hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.BadgeNumber)
@@ -64,14 +63,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ssn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ssn)
         </dd>
 
         <dt>

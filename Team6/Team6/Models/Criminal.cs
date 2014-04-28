@@ -31,15 +31,7 @@ namespace Team6.Models
     }
 
     public enum Race
-    {/*
-<<<<<<< HEAD
-	    [Description("American Indian / Alaska Native")] 
-        AmericanIndianAlaskaNative,
-=======
-        
-	    [Description("American Indian / Alaska Native")]
-	    AmericanIndianAlaskaNative,
->>>>>>> 26661eafe53c473838c7bc41cd0f8eb6192ff3a6*/
+    {
         [Description("American Indian / Alaska Native")] AmericanIndianAlaskaNative,
         [Description("Asian")] Asian,
 	    [Description("Black / African American")] BlackAfricanAmerican,
@@ -123,7 +115,7 @@ namespace Team6.Models
         [Display(Name = "Miscellaneous")]
         public string misc { get; set; }
 
-        [Display(Name = "image")]
+        [Display(Name = "Mug Shot")]
         public string image { get; set; }
 
         [Display(Name = "alt text")]

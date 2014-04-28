@@ -3,19 +3,17 @@
 @model Team6.Models.Officer
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit officer details";
 }
 
-<h2>Edit</h2>
-
+<h2>Edit Officer Details</h2>
+<hr />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Officer</h4>
-        <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.OfficerID)
 

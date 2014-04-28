@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Team6.Models.Officer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Officers";
 }
 
 
@@ -12,7 +12,8 @@
     }
 }
 
-<h2>Index</h2>
+<h2>All Officers</h2>
+<hr />
 @{
     HttpCookie cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
     FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
@@ -20,7 +21,7 @@
     if (ticket.UserData == "ChiefOfPolice" || ticket.UserData == "AssistantChief")
     { 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Officer", "Create")
 </p>
 }
 }
@@ -46,9 +47,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ssn)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EyeColor)
@@ -90,9 +88,6 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Ssn)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.EyeColor)
                 </td>
                 <td>
@@ -132,9 +127,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ssn)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.EyeColor)

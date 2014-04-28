@@ -1,15 +1,25 @@
-﻿@model Team6.Models.Criminal
+﻿@using Team6.helpers.CustomHtmlHelper;
+@using Team6.helpers.enumhelper
+@using Team6.Models
+@model Team6.Models.Criminal
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Criminal Details";
 }
 
-<h2>Details</h2>
+<h2>Criminal Details</h2>
+<hr />
 
 <div>
-    <h4>Criminal</h4>
-	<hr />
     <dl class="dl-horizontal">
+
+        <dt>
+
+        </dt>
+        <dd>
+            @Html.Image(Model.image, Model.AlternateText)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
@@ -59,7 +69,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ssn)
+            SSN
         </dt>
 
         <dd>
