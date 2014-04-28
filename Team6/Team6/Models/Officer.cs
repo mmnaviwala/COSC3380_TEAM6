@@ -36,7 +36,7 @@ namespace Team6.Models
 
         [Display(Name = "Badge Number")]
         [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Badge Number")]
-       [Required(ErrorMessage = "Badge Number is required")]
+        [Required(ErrorMessage = "Badge Number is required")]
         public int BadgeNumber { get; set; }
 
         [Display(Name = "Rank")]
@@ -44,10 +44,12 @@ namespace Team6.Models
 
         [StringLength(30)]
         [Display(Name = "First Name")] 
+        [Required(ErrorMessage="required")]
         public string FirstName { get; set; }
 
         [StringLength(30)]
         [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "required")]
         public string LastName { get; set; }
 
         [StringLength(15)]
@@ -67,6 +69,7 @@ namespace Team6.Models
 
         [StringLength(50)]
         [Display(Name = "Email")]
+        [Required(ErrorMessage = "required")]
         public string Email { get; set; }
 
         [Display(Name = "Social Security Number")]

@@ -26,7 +26,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2 col-md-offset-3 col-sm-5" })
                 <div class="col-md-2">
-                    @Html.EditorFor(model => model.UserName)
+                    
+                                        @Html.EditorFor(model => model.UserName)
                     @Html.ValidationMessageFor(model => model.UserName)
                 </div>
             </div>
@@ -38,7 +39,9 @@
                     @Html.ValidationMessageFor(model => model.Password)
                 </div>
             </div>
-
+            @Html.HiddenFor(model => model.FirstName, new { @Value = "john" })
+            @Html.HiddenFor(model => model.LastName, new { @Value = "john" })
+            @Html.HiddenFor(model => model.Email, new { @Value = "john@john.com" })
             <div class="form-group">
                 <div class="col-md-offset-5 col-md-2 col-sm-offset-4">
                     <input type="submit" value="Sign In" class="btn btn-default" />
