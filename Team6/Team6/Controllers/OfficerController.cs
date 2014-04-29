@@ -70,7 +70,16 @@ namespace Team6.Controllers
             if (ModelState.IsValid)
             {
                 db.Officers.Add(officer);
+                try{
                 db.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    ModelState.AddModelError("", "Invalid information");
+                    
+                    return View(officer);
+                }
                 return RedirectToAction("Index");
             }
 
@@ -119,7 +128,15 @@ namespace Team6.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(officer).State = EntityState.Modified;
+                try{
                 db.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    ModelState.AddModelError("", "Invalid information");
+                    return View(officer);
+                }
                 return RedirectToAction("Index");
             }
             return View(officer);

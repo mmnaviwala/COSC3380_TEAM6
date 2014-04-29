@@ -87,7 +87,15 @@ namespace Team6.Controllers
             if (ModelState.IsValid)
             {
                 db.Criminals.Add(criminal);
+                try{
                 db.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    ModelState.AddModelError("", "invalid information");
+                    return View(criminal);
+                }
                 return RedirectToAction("Index");
             }
 
@@ -146,7 +154,15 @@ namespace Team6.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(criminal).State = EntityState.Modified;
+                try{
                 db.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    ModelState.AddModelError("", "invalid information");
+                    return View(criminal);
+                }
                 return RedirectToAction("Index");
             }
             return View(criminal);

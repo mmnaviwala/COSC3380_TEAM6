@@ -72,7 +72,7 @@ namespace Team6.Controllers
                 {
                     db.SaveChanges();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
 
                     ModelState.AddModelError("", "Officer ID or criminal ID is incorrect");
@@ -117,7 +117,15 @@ namespace Team6.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(crimereport).State = EntityState.Modified;
+                try{
                 db.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    ModelState.AddModelError("", "Invalid information");
+                    return View(crimereport);
+                }
                 return RedirectToAction("Index");
             }
             return View(crimereport);
