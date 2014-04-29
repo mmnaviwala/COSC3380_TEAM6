@@ -30,6 +30,9 @@
 <table class="table table-condensed table-hover table-responsive table-bordered">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.OfficerID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.BadgeNumber)
         </th>
         <th>
@@ -68,6 +71,9 @@
         if (ticket.Name == item.UserName)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfficerID)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.BadgeNumber)
                 </td>
@@ -108,6 +114,9 @@
             if (ticket.UserData == "ChiefOfPolice" || ticket.UserData == "AssistantChief")
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OfficerID)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.BadgeNumber)
                     </td>

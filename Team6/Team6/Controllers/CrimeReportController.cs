@@ -75,7 +75,7 @@ namespace Team6.Controllers
                 catch (Exception)
                 {
 
-                    ModelState.AddModelError("", "Officer ID or criminal ID is incorrect");
+                    ModelState.AddModelError("", "Invalid Information");
                     return View(crimereport);
                 }
                 return RedirectToAction("Index");
