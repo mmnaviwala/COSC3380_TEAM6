@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using Team6.Models;
+using Team6.DAL;
 
 namespace Team6.Models
 {
@@ -210,5 +211,13 @@ namespace Team6.Models
 
         //public virtual CrimeReport CrimeReport { get; set; }
         public virtual ICollection<CrimeReport> CrimeReports { get; set; }
+
+        public int getHighestID()
+        {
+            Team6Context dre = new Team6Context();
+            var user = from o in dre.Criminals select o.CriminalID;
+            return user.Max();
+
+        }
     }
 }

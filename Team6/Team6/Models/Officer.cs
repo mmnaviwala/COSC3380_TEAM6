@@ -123,5 +123,12 @@ namespace Team6.Models
                 return string.Empty;
 
         }
+        public int getHighestID()
+        {
+            Team6Context dre = new Team6Context();
+            var user = from o in dre.Officers select o.OfficerID;
+            return user.Max();
+
+        }
     }
 }

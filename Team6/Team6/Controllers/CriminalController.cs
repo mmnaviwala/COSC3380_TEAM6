@@ -79,7 +79,8 @@ namespace Team6.Controllers
             {
                 criminal.image="~/Photos/unknown.jpg";
             }
-            
+
+            criminal.CriminalID = criminal.getHighestID() + 1;
 
             criminal.Height = Convert.ToInt32(formCollection["HeightFeet"]) * 12 + Convert.ToInt32(formCollection["HeightInches"]);
             if (ModelState.IsValid)

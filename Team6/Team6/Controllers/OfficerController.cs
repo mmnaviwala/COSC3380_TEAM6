@@ -67,7 +67,7 @@ namespace Team6.Controllers
             {
                 return RedirectToAction("LogOn", "Home");
             }
-
+            officer.OfficerID = officer.getHighestID() + 1;
 
             officer.Height = Convert.ToInt32(formCollection["HeightFeet"]) * 12 + Convert.ToInt32(formCollection["HeightInches"]);
             if (ModelState.IsValid)
