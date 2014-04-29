@@ -199,6 +199,7 @@
 
                 <label for="file">Filename:</label>
                 <input type="file" name="file" id="file" />
+                            @Html.HiddenFor(model => model.image, new { @Value = Model.image})
 
                 <!--
                 @using (Html.BeginForm("Create", "Profile", FormMethod.Post, new { enctype = "multipart/form-data", id = "frm_profile" }))
