@@ -165,6 +165,7 @@ namespace Team6.Models
 
         [Display(Name = "Social Security Number")]
         [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Social Security Number")]
+        [Range(111111111, 999999999, ErrorMessage = "SSN size invalid")]
         [Required(ErrorMessage = "Social Security Number is required")]
         public int Ssn { get; set; }
 
