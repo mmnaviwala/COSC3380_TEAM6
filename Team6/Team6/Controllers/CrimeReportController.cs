@@ -75,7 +75,19 @@ namespace Team6.Controllers
                 catch (Exception)
                 {
 
-                    ModelState.AddModelError("", "Invalid Information");
+                    CrimeReport user = new CrimeReport();
+                    if(user.getCriminalID(crimereport.CriminalID) == -1)
+                    {
+                        ModelState.AddModelError("", "Invalid Criminal ID");
+                    }
+                    else if (user.getOfficerId(crimereport.OfficerID) == -1)
+                    {
+                        ModelState.AddModelError("", "Invalid Officer ID");
+                    }
+                    else 
+                    { 
+                        ModelState.AddModelError("", "Invalid Information");
+                    }
                     return View(crimereport);
                 }
                 return RedirectToAction("Index");

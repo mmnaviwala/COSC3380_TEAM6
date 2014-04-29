@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Team6.DAL;
 
 namespace Team6.Models
 {
@@ -94,5 +95,25 @@ namespace Team6.Models
         public virtual Officer Officer { get; set; }
         public virtual Criminal Criminal { get; set; }
 
+        public int getOfficerId(int ID)
+        {
+            Team6Context dre = new Team6Context();
+            var user = from o in dre.Officers where o.OfficerID == ID select o;
+            if (user.ToList().Count > 0)
+                return user.First().OfficerID;
+            else
+                return -1;
+
+        }
+        public int getCriminalID(int ID)
+        {
+            Team6Context dre = new Team6Context();
+            var user = from o in dre.Criminals where o.CriminalID == ID select o;
+            if (user.ToList().Count > 0)
+                return user.First().CriminalID;
+            else
+                return -1;
+
+        }
     }
 }
