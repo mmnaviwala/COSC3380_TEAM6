@@ -70,7 +70,7 @@ namespace Team6.Controllers
             }
             if (file != null && file.ContentLength > 0)
             {
-                var fileName = Path.GetFileName(file.FileName);
+                var fileName = string.Format(@"{0}.txt", Guid.NewGuid()) + Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/Photos"), fileName);
                 file.SaveAs(path);
                 criminal.image = "~/Photos/" + fileName;
@@ -126,7 +126,7 @@ namespace Team6.Controllers
             }
             if (file != null && file.ContentLength > 0)
             {
-                var fileName = Path.GetFileName(file.FileName);
+                var fileName = string.Format(@"{0}.txt", Guid.NewGuid()) + Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/Photos"), fileName);
                 file.SaveAs(path);
                 criminal.image = "~/Photos/" + fileName;
