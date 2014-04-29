@@ -130,7 +130,7 @@
                             <br />
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Generate Report</button>
                                 </div>
                             </div>
                         }
@@ -249,7 +249,7 @@
                         <h4 style="color: black;" class="modal-title" id="criminalReportModalLabel">Generate Criminal Report</h4>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("CriminalReport", "Criminal", FormMethod.Get))
+                        @using (Html.BeginForm("CriminalReports", "Criminal", FormMethod.Get))
                         {
                             <div class="form-group">
                                 <label class="col-sm-5 control-label" style="Text-align: right; color: black;">First Name</label>
@@ -338,7 +338,7 @@
                             <br />
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Generate Report</button>
                                 </div>
                             </div>
                         }

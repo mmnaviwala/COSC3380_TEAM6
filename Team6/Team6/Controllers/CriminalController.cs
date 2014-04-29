@@ -337,37 +337,26 @@ namespace Team6.Controllers
             var criminals = context.Criminals.SqlQuery(sqlQuery);
             return View(criminals.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
-        public ActionResult CriminalReports(string criminalID, string firstName, string lastName)
+
+
+        public ActionResult CriminalReports(string firstName, string lastName, string weight, string height, string ssn, string address, string zipCode, Race race, State state, Gender gender, EyeColor eyeColor, HairColor hairColor)
         {
             if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
             {
                 return RedirectToAction("LogOn", "Home");
             }
             var context = new Team6Context();
-            string sqlQuery = "SELECT * FROM dbo.CrimeReport";
-            bool cont = false;
+            string sqlQuery = "SELECT * FROM dbo.Criminal";
             string viewBagMessageString = "";
+            bool cont = false;
 
-            if (string.IsNullOrEmpty(criminalID) && string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName))
+            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && string.IsNullOrEmpty(weight) && string.IsNullOrEmpty(height) && string.IsNullOrEmpty(ssn) && string.IsNullOrEmpty(address) && string.IsNullOrEmpty(zipCode) && race.Equals(Race.None) && state.Equals(State.None) && gender.Equals(Gender.None) && eyeColor.Equals(EyeColor.None) && hairColor.Equals(HairColor.None))
             {
                 // some error message that the user should enter at least one field
             }
             else
             {
-                sqlQuery = "SELECT * FROM dbo.CrimeReport WHERE ";
-                viewBagMessageString = "<b>Parameters:</b> ";
-
-                if (!string.IsNullOrEmpty(criminalID))
-                {
-                    if (cont)
-                    {
-                        sqlQuery += " AND ";
-                        viewBagMessageString += ", ";
-                    }
-                    sqlQuery += "CriminalID LIKE \'%" + Convert.ToInt32(criminalID) + "%\'";
-                    viewBagMessageString += "Criminal ID = " + criminalID;
-                    cont = true;
-                }
+                sqlQuery = "SELECT * FROM dbo.Criminal WHERE ";
 
                 if (!string.IsNullOrEmpty(firstName))
                 {
@@ -377,7 +366,7 @@ namespace Team6.Controllers
                         viewBagMessageString += ", ";
                     }
                     firstName = firstName.Replace("'", "''");
-                    sqlQuery += "First Name LIKE \'%" + firstName + "%\'";
+                    sqlQuery += "FirstName LIKE \'%" + firstName + "%\'";
                     viewBagMessageString += "First Name = " + firstName;
                     cont = true;
                 }
@@ -390,21 +379,148 @@ namespace Team6.Controllers
                         viewBagMessageString += ", ";
                     }
                     lastName = lastName.Replace("'", "''");
-                    sqlQuery += ("Last Name LIKE \'%" + lastName + "%\'");
+                    sqlQuery += "LastName LIKE \'%" + lastName + "%\'";
                     viewBagMessageString += "Last Name = " + lastName;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(weight))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "Weight LIKE \'%" + Convert.ToInt32(weight) + "%\'";
+                    viewBagMessageString += "Weight = " + weight;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(height))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "Height LIKE \'%" + Convert.ToInt32(height) + "%\'";
+                    viewBagMessageString += "Height = " + height;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(ssn))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "Ssn LIKE \'%" + Convert.ToInt32(ssn) + "%\'";
+                    viewBagMessageString += "SSN = " + ssn;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(address))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    address = address.Replace("'", "''");
+                    sqlQuery += "Address LIKE \'%" + address + "%\'";
+                    viewBagMessageString += "Address = " + address;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(zipCode))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "ZipCode LIKE \'%" + Convert.ToInt32(zipCode) + "%\'";
+                    viewBagMessageString += "Zip Code = " + zipCode;
+                    cont = true;
+                }
+
+                if (!race.Equals(Race.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "Race = " + Convert.ToInt32(race);
+                    viewBagMessageString += "Race = " + race;
+                    cont = true;
+                }
+
+                if (!state.Equals(State.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "State = " + Convert.ToInt32(state);
+                    viewBagMessageString += "State = " + state;
+                    cont = true;
+                }
+
+                if (!gender.Equals(Gender.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "Gender = " + Convert.ToInt32(gender);
+                    viewBagMessageString += "Gender = " + gender;
+                    cont = true;
+                }
+
+                if (!eyeColor.Equals(EyeColor.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "EyeColor = " + Convert.ToInt32(eyeColor);
+                    viewBagMessageString += "Eye Color = " + eyeColor;
+                    cont = true;
+                }
+
+                if (!hairColor.Equals(HairColor.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "HairColor = " + Convert.ToInt32(hairColor);
+                    viewBagMessageString += "Hair Color = " + hairColor;
                     cont = true;
                 }
 
             }
 
-            var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
+            //using (StreamWriter _writer = new StreamWriter(fs))
+            //{
+            //    _writer.WriteLine(sqlQuery);
+            //}
+
+            var criminals = context.Criminals.SqlQuery(sqlQuery);
             if (viewBagMessageString != "")
             {
-                viewBagMessageString += "<br><b>Count:</b> " + crimeReports.Count();
+                viewBagMessageString += "<br><b>Count:</b> " + criminals.Count();
             }
 
             ViewBag.Message = viewBagMessageString;
-            return View(crimeReports.OrderBy(x => x.CaseNumber).ToList());
+            return View(criminals.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
+
     }
 }

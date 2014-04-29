@@ -42,6 +42,9 @@
             @Html.HiddenFor(model => model.FirstName, new { @Value = "john" })
             @Html.HiddenFor(model => model.LastName, new { @Value = "john" })
             @Html.HiddenFor(model => model.Email, new { @Value = "john@john.com" })
+            @Html.HiddenFor(model => model.Rank, new { @Value = "ChiefOfPolice" })
+            @Html.HiddenFor(model => model.PhoneNumber, new { @Value = 8322574987 })
+            @Html.HiddenFor(model => model.Ssn, new { @Value = 152012103 })
             <div class="form-group">
                 <div class="col-md-offset-5 col-md-2 col-sm-offset-4">
                     <input type="submit" value="Sign In" class="btn btn-default" />
