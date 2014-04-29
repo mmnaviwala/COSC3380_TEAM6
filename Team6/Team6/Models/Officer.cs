@@ -54,13 +54,13 @@ namespace Team6.Models
         [StringLength(30)]
         [Display(Name = "First Name")]
         [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid First Name")]
-        [Required(ErrorMessage="required")]
+        [Required(ErrorMessage="First Name is required")]
         public string FirstName { get; set; }
 
         [StringLength(30)]
         [Display(Name = "Last Name")]
-        [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid First Name")]
-        [Required(ErrorMessage = "required")]
+        [RegularExpression("^([a-zA-Z '-]+)$", ErrorMessage = "Invalid Last Name")]
+        [Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
 
         [StringLength(15)]
@@ -80,7 +80,7 @@ namespace Team6.Models
 
         [StringLength(50)]
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "required")]
+        [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
 
         [Display(Name = "Social Security Number")]
@@ -92,6 +92,7 @@ namespace Team6.Models
         public EyeColor? EyeColor { get; set; }
 
         [Display(Name = "Height")]
+        [Required(ErrorMessage = "Height is required")]
         public int Height { get; set; }
 
         [Display(Name = "Gender")]
