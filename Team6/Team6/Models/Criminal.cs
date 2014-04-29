@@ -12,27 +12,114 @@ namespace Team6.Models
 
     public enum State
     {
-        None, AL, AK, AZ, AR, CA, CO, CT, DE, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY
+        [Description("None")]None,
+        [Description("AL")]AL,
+        [Description("AK")]AK,
+        [Description("AZ")]AZ,
+        [Description("AR")]AR,
+        [Description("CA")]CA,
+        [Description("CO")]CO,
+        [Description("CT")]CT,
+        [Description("DE")]DE,
+        [Description("FL")]FL,
+        [Description("GA")]GA,
+        [Description("HI")]HI,
+        [Description("ID")]ID,
+        [Description("IL")]IL,
+        [Description("IN")]IN,
+        [Description("IA")]IA,
+        [Description("KS")]KS,
+        [Description("KY")]KY,
+        [Description("LA")]LA,
+        [Description("ME")]ME,
+        [Description("MD")]MD,
+        [Description("MA")]MA,
+        [Description("MI")]MI,
+        [Description("MN")]MN,
+        [Description("MS")]MS,
+        [Description("MO")]MO,
+        [Description("MT")]MT,
+        [Description("NE")]NE,
+        [Description("NV")]NV,
+        [Description("NH")]NH,
+        [Description("NJ")]NJ,
+        [Description("NM")]NM,
+        [Description("NY")]NY,
+        [Description("NC")]NC,
+        [Description("ND")]ND,
+        [Description("OH")]OH,
+        [Description("OK")]OK,
+        [Description("OR")]OR,
+        [Description("PA")]PA,
+        [Description("RI")]RI,
+        [Description("SC")]SC,
+        [Description("SD")]SD,
+        [Description("TN")]TN,
+        [Description("TX")]TX,
+        [Description("UT")]UT,
+        [Description("VT")]VT,
+        [Description("VA")]VA,
+        [Description("WA")]WA,
+        [Description("WV")]WV,
+        [Description("WI")]WI,
+        [Description("WY")]WY
     }
 
     public enum Gender
     {
-        None, Male, Female
+        [Description("None")]
+        None,
+        [Description("Male")]
+        Male,
+        [Description("Female")]
+        Female
     }
 
     public enum EyeColor
     {
-	    None, Amber, Blue, Brown, Black, Gray, Green, Hazel
+        [Description("None")]
+        None,
+        [Description("Amber")]
+        Amber,
+        [Description("Blue")]
+        Blue,
+        [Description("Brown")]
+        Brown,
+        [Description("Black")]
+        Black,
+        [Description("Grey")]
+        Gray,
+        [Description("Green")]
+        Green,
+        [Description("Hazel")]
+        Hazel
     }
 
     public enum HairColor
     {
-	    None, Black, Brown, Red, Blonde, Grey, White, Bald, Other
+        [Description("None")]
+        None,
+        [Description("Black")]
+        Black,
+        [Description("Brown")]
+        Brown,
+        [Description("Red")]
+        Red,
+        [Description("Blonde")]
+        Blonde,
+        [Description("Grey")]
+        Grey,
+        [Description("White")]
+        White,
+        [Description("Bald")]
+        Bald,
+        [Description("Other")]  
+        Other
     }
 
     public enum Race
     {
-        [Description("None")] None
+        [Description("None")] None,
         [Description("American Indian / Alaska Native")] AmericanIndianAlaskaNative,
         [Description("Asian")] Asian,
 	    [Description("Black / African American")] BlackAfricanAmerican,
@@ -120,8 +207,6 @@ namespace Team6.Models
         [Display(Name = "Mug Shot")]
         public string image { get; set; }
 
-        [Display(Name = "alt text")]
-        public string AlternateText { get; set; }
 
         //public virtual CrimeReport CrimeReport { get; set; }
         public virtual ICollection<CrimeReport> CrimeReports { get; set; }

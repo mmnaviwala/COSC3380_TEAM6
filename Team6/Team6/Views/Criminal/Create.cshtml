@@ -141,7 +141,7 @@
             </div>
 
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.City)</label>
-            <div class="col-sm-4">
+            <div class="col-sm-4">                
                 @Html.EditorFor(model => model.City)
                 @Html.ValidationMessageFor(model => model.City)
             </div>
@@ -183,14 +183,6 @@
                     <label for="file">Filename:</label>
                     <input type="file" name="file" id="file" />
 
-                <!--
-                    @using (Html.BeginForm("Create", "Profile", FormMethod.Post, new { enctype = "multipart/form-data", id = "frm_profile" }))
-                {
-                    @Html.LabelFor(model => model.image)
-                    @Html.TextBoxFor(model => model.image, new { type = "file", accept = "image/*" }) 
-                    @Html.ValidationMessageFor(model => model.image)
-                }
-                -->
             </div>
         </div>
 

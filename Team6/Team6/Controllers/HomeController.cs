@@ -64,25 +64,6 @@ namespace Team6.Controllers
                 if (mod.Password == password)
                 {
 
-                    //FormsAuthentication.SetAuthCookie(mod.UserName, false);
-                    /*string userData = "ApplicationSpecific data for this user.";
-
-      FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
-        username,
-        DateTime.Now,
-        DateTime.Now.AddMinutes(30),
-        isPersistent,
-        userData,
-        FormsAuthentication.FormsCookiePath);
-
-      // Encrypt the ticket.
-      string encTicket = FormsAuthentication.Encrypt(ticket);
-
-      // Create the cookie.
-      Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
-
-      // Redirect back to original URL.
-      Response.Redirect(FormsAuthentication.GetRedirectUrl(username, isPersistent));*/
                     string userData = user.getUserRank(mod.UserName);
                     FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, mod.UserName, DateTime.Now, DateTime.Now.AddMinutes(30), true, userData, FormsAuthentication.FormsCookiePath);
                     string encticket = FormsAuthentication.Encrypt(ticket);

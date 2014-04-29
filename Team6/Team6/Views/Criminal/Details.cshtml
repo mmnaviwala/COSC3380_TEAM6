@@ -17,7 +17,7 @@
 
         </dt>
         <dd>
-            @Html.Image(Model.image, Model.AlternateText)
+            @Html.Image(Model.image, Model.FirstName + " " + Model.LastName)
         </dd>
 
         <dt>
@@ -113,7 +113,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Race)
+            @Model.Race.Value.GetDescription()
         </dd>
 
         <dt>

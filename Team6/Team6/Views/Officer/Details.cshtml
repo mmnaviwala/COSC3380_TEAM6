@@ -1,4 +1,6 @@
-﻿@model Team6.Models.Officer
+﻿@using Team6.helpers.enumhelper
+@using Team6.Models
+@model Team6.Models.Officer
 
 @{
     ViewBag.Title = "Officer details";
@@ -22,7 +24,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Rank)
+            @Model.Rank.Value.GetDescription()
         </dd>
 
         <dt>

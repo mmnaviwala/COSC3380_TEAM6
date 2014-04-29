@@ -76,7 +76,7 @@
     {
         <tr>
             @*<td>
-                @Html.Image(item.image, item.AlternateText)
+                @Html.Image(item.image, item.FirstName + " " + item.LastName)
             </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)

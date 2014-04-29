@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Team6.Models.Officer>
+﻿@using Team6.helpers.enumhelper
+@using Team6.Models
+@model IEnumerable<Team6.Models.Officer>
 
 @{
     ViewBag.Title = "Officers";
@@ -70,7 +72,7 @@
                     @Html.DisplayFor(modelItem => item.BadgeNumber)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Rank)
+                    @item.Rank.Value.GetDescription()
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
@@ -88,7 +90,7 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.EyeColor)
+                    @item.EyeColor.Value.GetDescription()
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Height)
@@ -111,7 +113,7 @@
                         @Html.DisplayFor(modelItem => item.BadgeNumber)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Rank)
+                        @item.Rank.Value.GetDescription()
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FirstName)
@@ -129,7 +131,7 @@
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.EyeColor)
+                        @item.EyeColor.Value.GetDescription()
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Height)

@@ -24,7 +24,7 @@
                 </div>
            <label class="col-xs-1 control-label" > @Html.LabelFor(model => model.Rank)</label>
             <div class="col-sm-4">
-                @Html.DropDownList("Rank", enumHelper.GetSelectedItemList<Rank>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model=>model.Rank, enumHelper.GetSelectedItemList<Rank>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.Rank)
                 </div>
             </div>
@@ -85,13 +85,13 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.EyeColor) </label>
             <div class="col-md-5">
-                @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model=>model.EyeColor, enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
               @Html.ValidationMessageFor(model => model.EyeColor)
               
                 </div>
             <label class="col-xs-1 control-label"> @Html.LabelFor(model => model.Gender)</label>
             <div class="col-sm-4">
-                @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model=>model.Gender, enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.Gender)
                 </div>
             </div>

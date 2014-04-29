@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Team6.Models.Criminal>
+﻿@using Team6.helpers.enumhelper
+@using Team6.Models
+@model IEnumerable<Team6.Models.Criminal>
 
 @{
     ViewBag.Title = "Search Criminal";
@@ -71,7 +73,10 @@
         FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
         if (item.DateOfBirth.AddYears(18) < DateTime.Now)
         {
-            <tr>
+            <tr>                
+                @*<td>
+                    @Html.Image(item.image, item.FirstName + " " + item.LastName)
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
@@ -106,7 +111,7 @@
                     @Html.DisplayFor(modelItem => item.DateOfBirth)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Race)
+                    @item.Race.Value.GetDescription()
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Address)

@@ -11,6 +11,7 @@ namespace Team6.Models
 {
     public enum Rank
     {
+        [Description("None")]
         None,
         [Description("Chief of police")]
         ChiefOfPolice,
@@ -18,13 +19,21 @@ namespace Team6.Models
         AssistantChief,
         [Description("Deputy Chief")]
         DeputyChief,
+        [Description("Captain")]
         Captain,
+        [Description("Lieutenant")]
         Lieutenant,
+        [Description("Sergeant")]
         Sergeant,
+        [Description("Detective")]
         Detective,
+        [Description("Officer")]
         Officer,
+        [Description("Inspector")]
         Inspector,
+        [Description("Colonel")]
         Colonel,
+        [Description("Major")]
         Major
     }
 
