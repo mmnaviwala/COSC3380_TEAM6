@@ -61,12 +61,15 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer)
+        public ActionResult Create([Bind(Include = "OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer, FormCollection formCollection)
         {
             if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
             {
                 return RedirectToAction("LogOn", "Home");
             }
+
+
+            officer.Height = Convert.ToInt32(formCollection["HeightFeet"]) * 12 + Convert.ToInt32(formCollection["HeightInches"]);
             if (ModelState.IsValid)
             {
                 db.Officers.Add(officer);
@@ -119,12 +122,14 @@ namespace Team6.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer)
+        public ActionResult Edit([Bind(Include = "OfficerID,BadgeNumber,Rank,FirstName,LastName,UserName,Password,PhoneNumber,Email,Ssn,EyeColor,Height,Gender")] Officer officer, FormCollection formCollection)
         {
             if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
             {
                 return RedirectToAction("LogOn", "Home");
             }
+
+            officer.Height = Convert.ToInt32(formCollection["HeightFeet"]) * 12 + Convert.ToInt32(formCollection["HeightInches"]);
             if (ModelState.IsValid)
             {
                 db.Entry(officer).State = EntityState.Modified;

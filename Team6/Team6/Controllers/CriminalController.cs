@@ -80,10 +80,8 @@ namespace Team6.Controllers
                 criminal.image="~/Photos/unknown.jpg";
             }
             
-            string Heightvalue = formCollection["HeightFeet"];
-            string Heightvalue2 = formCollection["HeightInches"];
-            
-            criminal.Height = Convert.ToInt32( Heightvalue) * 12 + Convert.ToInt32(Heightvalue2);
+
+            criminal.Height = Convert.ToInt32(formCollection["HeightFeet"]) * 12 + Convert.ToInt32(formCollection["HeightInches"]);
             if (ModelState.IsValid)
             {
                 db.Criminals.Add(criminal);
