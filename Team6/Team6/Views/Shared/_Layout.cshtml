@@ -86,41 +86,41 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="crimeReportReportModalLabel">Generate Crime Report Reports</h4>
+                        <h4 style="color: black;"class="modal-title" id="crimeReportReportModalLabel">Generate Crime Report Reports</h4>
                     </div>
                     <div class="modal-body">
                         @using (Html.BeginForm("CrimeReportReports", "CrimeReport", FormMethod.Get))
                         {
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Criminal ID</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Criminal ID</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("criminalId", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Officer ID</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Officer ID</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("officerId", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Case Number</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Case Number</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("caseNumber", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Prison Agency</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Prison Agency</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("prisonAgency", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Offense Type</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Offense Type</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("offenseType", enumHelper.GetSelectedItemList<OffenseType>(), new { style = "width:160px" })
                                 </div>
@@ -150,7 +150,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="officerModalLabel">Search Officers</h4>
+                        <h4 style="color: black;"class="modal-title" id="officerModalLabel">Search Officers</h4>
                     </div>
                     <div class="modal-body">
                         @using (Html.BeginForm("SearchOfficer", "Officer", FormMethod.Get))
@@ -158,63 +158,63 @@
 
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">First Name</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">First Name</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("firstName", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Last Name</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Last Name</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("lastName", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">User Name</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">User Name</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("userName", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Phone Number</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Phone Number</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("phoneNumber", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Social Security Number</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Social Security Number</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("ssn", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Badge Number</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Badge Number</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("badgeNumber", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Rank</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Rank</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("rank", enumHelper.GetSelectedItemList<Rank>(), new { style = "width:160px" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Gender</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Gender</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Eye Color</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Eye Color</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("eyeColor", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
                                 </div>
@@ -243,90 +243,90 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="criminalModalLabel">Search Criminals</h4>
+                        <h4 style="color: black;"class="modal-title" id="criminalModalLabel">Search Criminals</h4>
                     </div>
                     <div class="modal-body">
                         @using (Html.BeginForm("SearchCriminal", "Criminal", FormMethod.Get))
                         {
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">First Name</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">First Name</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("firstName", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Last Name</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Last Name</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("lastName", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Weight</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Weight</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("weight", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Height</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Height</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("height", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Social Security Number</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Social Security Number</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("ssn", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Address</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Address</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("address", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Zip Code</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Zip Code</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("zipCode", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Race</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Race</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("race", enumHelper.GetSelectedItemList<Race>(), new { style = "width:160px" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">State</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">State</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("state", enumHelper.GetSelectedItemList<State>(), new { style = "width:160px" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Gender</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Gender</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Eye Color</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Eye Color</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("eyeColor", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Hair Color</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Hair Color</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("hairColor", enumHelper.GetSelectedItemList<HairColor>(), new { style = "width:160px" })
                                 </div>
@@ -355,41 +355,41 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="crimeReportModalLabel">Search Crime Reports</h4>
+                        <h4 style="color: black;"class="modal-title" id="crimeReportModalLabel">Search Crime Reports</h4>
                     </div>
                     <div class="modal-body">
                         @using (Html.BeginForm("SearchCrimeReport", "CrimeReport", FormMethod.Get))
                         {
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Criminal ID</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Criminal ID</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("criminalId", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Officer ID</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Officer ID</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("officerId", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Case Number</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Case Number</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("caseNumber", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Prison Agency</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Prison Agency</label>
                                 <div class="col-sm-6">
                                     @Html.TextBox("prisonAgency", null, new { @class = "input-xlarge" })
                                 </div>
                             </div><br>
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" style="Text-align: right;">Offense Type</label>
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Offense Type</label>
                                 <div class="col-sm-6">
                                     @Html.DropDownList("offenseType", enumHelper.GetSelectedItemList<OffenseType>(), new { style = "width:160px" })
                                 </div>
