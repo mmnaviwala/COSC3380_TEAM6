@@ -22,13 +22,15 @@
             <div class="col-sm-5">
                 @Html.EditorFor(model => model.BadgeNumber)
                 @Html.ValidationMessageFor(model => model.BadgeNumber)
-            </div>
+            </div>            
+            @Html.HiddenFor(model => model.Rank, new { @Value = Model.Rank })
+                <!--
             <label class="col-xs-1 control-label"> @Html.LabelFor(model => model.Rank)</label>
             <div class="col-sm-4">
-                @Html.DropDownList("Rank", enumHelper.GetSelectedItemList<Rank>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model=>model.Rank, enumHelper.GetSelectedItemList<Rank>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.Rank)
-
             </div>
+                                      -->
         </div>
 
 
@@ -62,7 +64,9 @@
             @Html.EditorFor(model => model.Password)
             @Html.ValidationMessageFor(model => model.Password)
 
-        </div>*@
+        </div>*@                
+        @Html.HiddenFor(model => model.UserName, new { @Value = Model.UserName })
+        @Html.HiddenFor(model => model.Password, new { @Value = Model.Password })
 
         <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.PhoneNumber)</label>
@@ -125,7 +129,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">@Html.LabelFor(model => model.EyeColor) </label>
             <div class="col-md-5">
-                @Html.DropDownList("Eye Color", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
+                @Html.DropDownListFor(model=>model.EyeColor, enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
                 @Html.ValidationMessageFor(model => model.EyeColor)
 
             </div>
@@ -134,7 +138,7 @@
                 <label class="col-xs-1 control-label"> @Html.LabelFor(model => model.Gender)</label>
                 <div class="col-sm-4">
 
-                    @Html.DropDownList("Gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
+                    @Html.DropDownListFor(model=>model.Gender, enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
                     @Html.ValidationMessageFor(model => model.Gender)
                     </div>
                 </div>
