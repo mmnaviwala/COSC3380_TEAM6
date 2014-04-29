@@ -274,5 +274,99 @@ namespace Team6.Controllers
             var officers1 = context.Officers.SqlQuery(sqlQuery);
             return View(officers1.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
+
+        public ActionResult CrimeReportReports(string officerId, string badgeNumber, string firstName, string lastName, OffenseType offenseType)
+        {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+            var context = new Team6Context();
+            string sqlQuery = "SELECT * FROM dbo.CrimeReport";
+            bool cont = false;
+            string viewBagMessageString = "";
+
+            if (string.IsNullOrEmpty(officerId) && string.IsNullOrEmpty(badgeNumber) && string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && offenseType.Equals(OffenseType.None))
+            {
+                // some error message that the user should enter at least one field
+            }
+            else
+            {
+                sqlQuery = "SELECT * FROM dbo.CrimeReport WHERE ";
+                viewBagMessageString = "<b>Parameters:</b> ";
+
+                if (!string.IsNullOrEmpty(officerId))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "OfficerID LIKE \'%" + Convert.ToInt32(officerId) + "%\'";
+                    viewBagMessageString += "Officer ID = " + officerId;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(badgeNumber))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "badgeNumber LIKE \'%" + Convert.ToInt32(badgeNumber) + "%\'";
+                    viewBagMessageString += "Badge Number ID = " + badgeNumber;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(firstName))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    firstName = firstName.Replace("'", "''");
+                    sqlQuery += ("FirstName LIKE \'%" + firstName + "%\'");
+                    viewBagMessageString += "First Name = " + firstName;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(lastName))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    lastName = lastName.Replace("'", "''");
+                    sqlQuery += ("LastName LIKE \'%" + lastName + "%\'");
+                    viewBagMessageString += "Last Name = " + lastName;
+                    cont = true;
+                }
+
+                if (!offenseType.Equals(OffenseType.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "OffenseType = " + Convert.ToInt32(offenseType);
+                    viewBagMessageString += "Offense Type = " + offenseType;
+                    cont = true;
+                }
+
+            }
+
+            var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
+            if (viewBagMessageString != "")
+            {
+                viewBagMessageString += "<br><b>Count:</b> " + crimeReports.Count();
+            }
+
+            ViewBag.Message = viewBagMessageString;
+            return View(crimeReports.OrderBy(x => x.CaseNumber).ToList());
+        }
     }
 }

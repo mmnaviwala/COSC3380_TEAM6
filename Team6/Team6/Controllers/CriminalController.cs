@@ -319,5 +319,74 @@ namespace Team6.Controllers
             var criminals = context.Criminals.SqlQuery(sqlQuery);
             return View(criminals.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
+        public ActionResult CriminalReports(string criminalID, string firstName, string lastName)
+        {
+            if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
+            {
+                return RedirectToAction("LogOn", "Home");
+            }
+            var context = new Team6Context();
+            string sqlQuery = "SELECT * FROM dbo.CrimeReport";
+            bool cont = false;
+            string viewBagMessageString = "";
+
+            if (string.IsNullOrEmpty(criminalID) && string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName))
+            {
+                // some error message that the user should enter at least one field
+            }
+            else
+            {
+                sqlQuery = "SELECT * FROM dbo.CrimeReport WHERE ";
+                viewBagMessageString = "<b>Parameters:</b> ";
+
+                if (!string.IsNullOrEmpty(criminalID))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "CriminalID LIKE \'%" + Convert.ToInt32(criminalID) + "%\'";
+                    viewBagMessageString += "Criminal ID = " + criminalID;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(firstName))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    firstName = firstName.Replace("'", "''");
+                    sqlQuery += "First Name LIKE \'%" + firstName + "%\'";
+                    viewBagMessageString += "First Name = " + firstName;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(lastName))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    lastName = lastName.Replace("'", "''");
+                    sqlQuery += ("Last Name LIKE \'%" + lastName + "%\'");
+                    viewBagMessageString += "Last Name = " + lastName;
+                    cont = true;
+                }
+
+            }
+
+            var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
+            if (viewBagMessageString != "")
+            {
+                viewBagMessageString += "<br><b>Count:</b> " + crimeReports.Count();
+            }
+
+            ViewBag.Message = viewBagMessageString;
+            return View(crimeReports.OrderBy(x => x.CaseNumber).ToList());
+        }
     }
 }
