@@ -76,7 +76,7 @@ namespace Team6.Models
         [Display(Name = "Phone Number")]
         [RegularExpression("^([0-9]+)$", ErrorMessage = "Invalid Phone Number")]
         [Required(ErrorMessage = "Phone Number is required")]
-        public int PhoneNumber { get; set; }
+        public Int64 PhoneNumber { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Email")]

@@ -199,7 +199,7 @@ namespace Team6.Models
         public State? State { get; set; }
 
         [Display(Name = "Phone Number")]
-        public int PhoneNumber { get; set; }
+        public Int64 PhoneNumber { get; set; }
 
         [Display(Name = "Miscellaneous")]
         public string misc { get; set; }
