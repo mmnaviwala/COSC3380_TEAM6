@@ -297,49 +297,26 @@ namespace Team6.Controllers
             return View(officers1.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
 
-        public ActionResult CrimeReportReports(string officerId, string badgeNumber, string firstName, string lastName, OffenseType offenseType)
+
+        public ActionResult OffierReport(string firstName, string lastName, string userName, string email, string phoneNumber, string ssn, string badgeNumber, Rank rank, Gender gender, EyeColor eyeColor)
         {
             if (!(System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated))
             {
                 return RedirectToAction("LogOn", "Home");
             }
             var context = new Team6Context();
-            string sqlQuery = "SELECT * FROM dbo.CrimeReport";
+            string sqlQuery = "SELECT * FROM dbo.Officer";
             bool cont = false;
             string viewBagMessageString = "";
 
-            if (string.IsNullOrEmpty(officerId) && string.IsNullOrEmpty(badgeNumber) && string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && offenseType.Equals(OffenseType.None))
+            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName) && string.IsNullOrEmpty(userName) && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phoneNumber) && string.IsNullOrEmpty(ssn) && string.IsNullOrEmpty(badgeNumber) && rank.Equals(Rank.None) && gender.Equals(Gender.None) && eyeColor.Equals(EyeColor.None))
             {
                 // some error message that the user should enter at least one field
             }
             else
             {
-                sqlQuery = "SELECT * FROM dbo.CrimeReport WHERE ";
+                sqlQuery = "SELECT * FROM dbo.Officer WHERE ";
                 viewBagMessageString = "<b>Parameters:</b> ";
-
-                if (!string.IsNullOrEmpty(officerId))
-                {
-                    if (cont)
-                    {
-                        sqlQuery += " AND ";
-                        viewBagMessageString += ", ";
-                    }
-                    sqlQuery += "OfficerID LIKE \'%" + Convert.ToInt32(officerId) + "%\'";
-                    viewBagMessageString += "Officer ID = " + officerId;
-                    cont = true;
-                }
-
-                if (!string.IsNullOrEmpty(badgeNumber))
-                {
-                    if (cont)
-                    {
-                        sqlQuery += " AND ";
-                        viewBagMessageString += ", ";
-                    }
-                    sqlQuery += "badgeNumber LIKE \'%" + Convert.ToInt32(badgeNumber) + "%\'";
-                    viewBagMessageString += "Badge Number ID = " + badgeNumber;
-                    cont = true;
-                }
 
                 if (!string.IsNullOrEmpty(firstName))
                 {
@@ -349,7 +326,7 @@ namespace Team6.Controllers
                         viewBagMessageString += ", ";
                     }
                     firstName = firstName.Replace("'", "''");
-                    sqlQuery += ("FirstName LIKE \'%" + firstName + "%\'");
+                    sqlQuery += "FirstName LIKE \'%" + firstName + "%\'";
                     viewBagMessageString += "First Name = " + firstName;
                     cont = true;
                 }
@@ -362,33 +339,119 @@ namespace Team6.Controllers
                         viewBagMessageString += ", ";
                     }
                     lastName = lastName.Replace("'", "''");
-                    sqlQuery += ("LastName LIKE \'%" + lastName + "%\'");
+                    sqlQuery += "LastName LIKE \'%" + lastName + "%\'";
                     viewBagMessageString += "Last Name = " + lastName;
                     cont = true;
                 }
 
-                if (!offenseType.Equals(OffenseType.None))
+                if (!string.IsNullOrEmpty(userName))
                 {
                     if (cont)
                     {
                         sqlQuery += " AND ";
                         viewBagMessageString += ", ";
                     }
-                    sqlQuery += "OffenseType = " + Convert.ToInt32(offenseType);
-                    viewBagMessageString += "Offense Type = " + offenseType;
+                    userName.Replace("'", "''");
+                    sqlQuery += "UserName LIKE \'%" + userName + "%\'";
+                    viewBagMessageString += "User Name = " + userName;
                     cont = true;
                 }
 
+                if (!string.IsNullOrEmpty(email))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    email = email.Replace("'", "''");
+                    sqlQuery += "Email LIKE \'%" + email + "%\'";
+                    viewBagMessageString += "Email = " + email;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(phoneNumber))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "PhoneNumber LIKE \'%" + Convert.ToInt32(phoneNumber) + "%\'";
+                    viewBagMessageString += "Phone Number = " + phoneNumber;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(ssn))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "Ssn LIKE \'%" + Convert.ToInt32(ssn) + "%\'";
+                    viewBagMessageString += "SSN = " + ssn;
+                    cont = true;
+                }
+
+                if (!string.IsNullOrEmpty(badgeNumber))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "BadgeNumber LIKE \'%" + Convert.ToInt32(badgeNumber) + "%\'";
+                    viewBagMessageString += "Badge Number = " + badgeNumber;
+                    cont = true;
+                }
+
+                if (!rank.Equals(Rank.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "Rank = " + Convert.ToInt32(rank);
+                    viewBagMessageString += "Rank = " + rank;
+                    cont = true;
+                }
+
+                if (!gender.Equals(Gender.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "Gender = " + Convert.ToInt32(gender);
+                    viewBagMessageString += "Gender = " + gender;
+                    cont = true;
+                }
+
+                if (!eyeColor.Equals(EyeColor.None))
+                {
+                    if (cont)
+                    {
+                        sqlQuery += " AND ";
+                        viewBagMessageString += ", ";
+                    }
+                    sqlQuery += "EyeColor = " + Convert.ToInt32(eyeColor);
+                    viewBagMessageString += "Eye Color = " + eyeColor;
+                    cont = true;
+                }
             }
 
-            var crimeReports = context.CrimeReports.SqlQuery(sqlQuery);
+            var officers1 = context.Officers.SqlQuery(sqlQuery);
             if (viewBagMessageString != "")
             {
-                viewBagMessageString += "<br><b>Count:</b> " + crimeReports.Count();
+                viewBagMessageString += "<br><b>Count:</b> " + officers1.Count();
             }
 
             ViewBag.Message = viewBagMessageString;
-            return View(crimeReports.OrderBy(x => x.CaseNumber).ToList());
+            return View(officers1.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList());
         }
+
     }
 }

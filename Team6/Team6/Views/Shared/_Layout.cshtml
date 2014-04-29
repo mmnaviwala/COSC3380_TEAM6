@@ -41,9 +41,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a data-toggle="modal" data-target="#crimeReportReportsModal">Crime Report</a></li>
-                                    <li><a data-toggle="modal" data-target="#criminalModal">Criminal Report</a></li>
-                                    <li><a data-toggle="modal" data-target="#officerModal">Officer Report</a></li>
+                                    <li><a data-toggle="modal" data-target="#crimeReportReportsModal">Crime Report Report</a></li>
+                                    <li><a data-toggle="modal" data-target="#criminalReportModal">Criminal Report</a></li>
+                                    <li><a data-toggle="modal" data-target="#officerReportModal">Officer Report</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -74,14 +74,13 @@
             @RenderBody()
             <hr />
             <footer>
-                <sub>Unauthorized data and access is prohobited.  </sub>
-                <sub>Image sources: uh.edu and wikipedia.org.  </sub>
+                <sub>Unauthorized data and access to this website is prohobited. </sub>
                 <sub>&copy; @DateTime.Now.Year - Team6</sub>
             </footer>
         </div>
 
 
-        <!-- -------------------------------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------------------------------------- -->
         <!-- Crime report reports modal start -->
         <div class="modal fade" id="crimeReportReportsModal" tabindex="-1" role="dialog" aria-labelledby="crimeReportReportModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -145,119 +144,217 @@
             </div>
         </div>
         <!-- Crime report reports modal end -->
-    <!-- ----------------------------------------------------------------------------------------->
-    <!-- Criminal report reports modal start -->
-    <div class="modal fade" id="criminalModalLabel" tabindex="-1" role="dialog" aria-labelledby="criminalModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="criminalModalLabel">Generate Criminal Report</h4>
+   
+        <!-- Officer Report modal start -->
+        <div class="modal fade" id="officerReportModal" tabindex="-1" role="dialog" aria-labelledby="officerReportModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 style="color: black;" class="modal-title" id="officerReportModalLabel">Generate Officer Report</h4>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("OffierReport", "Officer", FormMethod.Get))
+                        {
+
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">First Name</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("firstName", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Last Name</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("lastName", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">User Name</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("userName", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Phone Number</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("phoneNumber", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Social Security Number</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("ssn", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Badge Number</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("badgeNumber", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Rank</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("rank", enumHelper.GetSelectedItemList<Rank>(), new { style = "width:160px" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Gender</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Eye Color</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("eyeColor", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
+                                </div>
+                            </div><br>
+
+                            <br />
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary btn-block">Generate Report</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <!-- <div class="modal-footer"> -->
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <!-- <div> -->
                 </div>
-                <div class="modal-body">
-                    @using (Html.BeginForm("CriminalReportSheet", "CriminalReport", FormMethod.Get))
-                    {
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label" style="Text-align: right;">Criminal ID</label>
-                            <div class="col-sm-6">
-                                @Html.TextBox("criminalId", null, new { @class = "input-xlarge" })
-                            </div>
-                        </div><br><br>
-
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label" style="Text-align: right;">First Name</label>
-                            <div class="col-sm-6">
-                                @Html.TextBox("firstName", null, new { @class = "input-xlarge" })
-                            </div>
-                        </div><br>
-
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label" style="Text-align: right;">Last Name</label>
-                            <div class="col-sm-6">
-                                @Html.TextBox("lastName", null, new { @class = "input-xlarge" })
-                            </div>
-                        </div><br>
-
-                        <br />
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-block">Search</button>
-                            </div>
-                        </div>
-                    }
-
-                </div>
-                <!-- <div class="modal-footer"> -->
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button> -->
-                <!-- <div> -->
             </div>
         </div>
-    </div>
-    <!-- Criminal reports modal end -->
-    <!-- -------------------------------------------------------------------------------------- -->
-    <!-- Officer reports modal start -->
-    <div class="modal fade" id="officerModalLabel" tabindex="-1" role="dialog" aria-labelledby="officerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="officerModalLabel">Generate Officer Report</h4>
+        <!-- Officer Report modal end -->
+
+
+        <!-- Criminal Report modal start -->
+        <div class="modal fade" id="criminalReportModal" tabindex="-1" role="dialog" aria-labelledby="criminalReportModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 style="color: black;" class="modal-title" id="criminalReportModalLabel">Generate Criminal Report</h4>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("CriminalReport", "Criminal", FormMethod.Get))
+                        {
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">First Name</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("firstName", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Last Name</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("lastName", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Weight</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("weight", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Height</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("height", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Social Security Number</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("ssn", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Address</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("address", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Zip Code</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("zipCode", null, new { @class = "input-xlarge" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Race</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("race", enumHelper.GetSelectedItemList<Race>(), new { style = "width:160px" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">State</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("state", enumHelper.GetSelectedItemList<State>(), new { style = "width:160px" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Gender</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("gender", enumHelper.GetSelectedItemList<Gender>(), new { style = "width:160px" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Eye Color</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("eyeColor", enumHelper.GetSelectedItemList<EyeColor>(), new { style = "width:160px" })
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" style="Text-align: right; color: black;">Hair Color</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("hairColor", enumHelper.GetSelectedItemList<HairColor>(), new { style = "width:160px" })
+                                </div>
+                            </div><br>
+
+                            <br />
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <!-- <div class="modal-footer"> -->
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <!-- <div> -->
                 </div>
-                <div class="modal-body">
-                    @using (Html.BeginForm("OfficerReportSheet", "OfficerReport", FormMethod.Get))
-                    {
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label" style="Text-align: right;">Officer ID</label>
-                            <div class="col-sm-6">
-                                @Html.TextBox("officerId", null, new { @class = "input-xlarge" })
-                            </div>
-                        </div><br><br>
-
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label" style="Text-align: right;">Badge Number</label>
-                            <div class="col-sm-6">
-                                @Html.TextBox("badgeNumber", null, new { @class = "input-xlarge" })
-                            </div>
-                        </div><br>
-
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label" style="Text-align: right;">First Name</label>
-                            <div class="col-sm-6">
-                                @Html.TextBox("firstName", null, new { @class = "input-xlarge" })
-                            </div>
-                        </div><br>
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label" style="Text-align: right;">Last Name</label>
-                            <div class="col-sm-6">
-                                @Html.TextBox("firstName", null, new { @class = "input-xlarge" })
-                            </div>
-                        </div><br>
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label" style="Text-align: right;">Rank</label>
-                            <div class="col-sm-6">
-                                @Html.TextBox("rank", null, new { @class = "input-xlarge" })
-                            </div>
-                        </div><br>
-
-                        <br />
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-block">Search</button>
-                            </div>
-                        </div>
-                    }
-
-                </div>
-                <!-- <div class="modal-footer"> -->
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button> -->
-                <!-- <div> -->
             </div>
         </div>
-    </div>
-    <!-- Officer reports modal end -->
+        <!-- Criminal Report modal end -->
+
     <!-- -------------------------------------------------------------------------------------- -->
+        
         <!-- Search officer modal start -->
         <div class="modal fade" id="officerModal" tabindex="-1" role="dialog" aria-labelledby="officerModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -351,6 +448,7 @@
             </div>
         </div>
         <!-- Search officer modal end -->
+        
         <!-- Search criminal modal start -->
         <div class="modal fade" id="criminalModal" tabindex="-1" role="dialog" aria-labelledby="criminalModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -463,6 +561,7 @@
             </div>
         </div>
         <!-- Search criminal modal end -->
+
         <!-- Search crime report modal start -->
         <div class="modal fade" id="crimeReportModal" tabindex="-1" role="dialog" aria-labelledby="crimeReportModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -526,7 +625,8 @@
             </div>
         </div>
         <!-- Search crime report modal end -->
-        <!-- -------------------------------------------------------------------------------------- -->
+    
+    <!-- -------------------------------------------------------------------------------------- -->
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)

@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Team6.Models.Officer>
+
+@{
+    ViewBag.Title = "Officer Reports";
+}
+
+<h2 style="width:100%;background-color:#bcbcbc;padding:5px;text-align:center;">Officer Reports</h2>
+<br />
+@{
+    if (@ViewBag.Message != "")
+    {
+        <h3>@Html.Raw(ViewBag.Message)</h3>
+    }
+}
+
+@foreach (var item in Model)
+{
+    <br /><hr /><br />
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Officer ID</b>
+        </div>
+        <div class="col-xs-3">
+            @item.OfficerID
+        </div>
+        <div class="col-xs-3">
+            <b>Badge Number</b>
+        </div>
+        <div class="col-xs-3">
+            @item.BadgeNumber
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Rank</b>
+        </div>
+        <div class="col-xs-3">
+            @item.Rank
+        </div>
+        <div class="col-xs-3">
+            <b>First Name</b>
+        </div>
+        <div class="col-xs-3">
+            @item.FirstName
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Last Name</b>
+        </div>
+        <div class="col-xs-3">
+            @item.LastName
+        </div>
+        <div class="col-xs-3">
+            <b>User Name</b>
+        </div>
+        <div class="col-xs-3">
+            @item.UserName
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Phone Number</b>
+        </div>
+        <div class="col-xs-3">
+            @item.PhoneNumber
+        </div>
+        <div class="col-xs-3">
+            <b>Email</b>
+        </div>
+        <div class="col-xs-3">
+            @item.Email
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Eye Color</b>
+        </div>
+        <div class="col-xs-3">
+            @item.EyeColor
+        </div>
+        <div class="col-xs-3">
+            <b>Height</b>
+        </div>
+        <div class="col-xs-3">
+            @item.Height
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b>Gender</b>
+        </div>
+        <div class="col-xs-3">
+            @item.Gender
+        </div>
+    </div>
+
+
+}
+
+
+
