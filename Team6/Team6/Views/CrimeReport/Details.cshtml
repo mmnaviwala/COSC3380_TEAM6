@@ -1,4 +1,6 @@
-﻿@model Team6.Models.CrimeReport
+﻿@using Team6.helpers.enumhelper
+@using Team6.Models
+@model Team6.Models.CrimeReport
 
 @{
     ViewBag.Title = "Crime report details";
@@ -46,7 +48,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OffenseType)
+            @Model.OffenseType.Value.GetDescription()
         </dd>
 
         <dt>

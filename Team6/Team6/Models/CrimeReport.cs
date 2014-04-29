@@ -9,17 +9,23 @@ namespace Team6.Models
 {
     public enum OffenseType
     {
+        [Description("None")]
         None,
+        [Description("Murder")]
         Murder,
+        [Description("Rape")]
         Rape,
+        [Description("Robbery")]
         Robbery,
         [Description("Aggravated Assault")]
         AggravatedAssault,
+        [Description("Burglary")]
         Burglary,
         [Description("Larceny-Theft")]
         LarcenyTheft,
         [Description("Motor Vehicle Theft")]
         MotorVehicleTheft,
+        [Description("Arson")]
         Arson,
         [Description("Domestic Violence")]
         DomesticViolence,
@@ -27,9 +33,13 @@ namespace Team6.Models
         DrugRelatedCrime,
         [Description("DUI/DWI")]
         DUIDWI,
+        [Description("Fraud")]
         Fraud,
+        [Description("Kidnapping")]
         Kidnapping,
+        [Description("Manslaughter")]
         Manslaughter,
+        [Description("Vandalism")]
         Vandalism
     }
 
