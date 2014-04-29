@@ -68,7 +68,16 @@ namespace Team6.Controllers
             if (ModelState.IsValid)
             {
                 db.CrimeReports.Add(crimereport);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+
+                    ModelState.AddModelError("", "Officer ID or criminal ID is incorrect");
+                    return View(crimereport);
+                }
                 return RedirectToAction("Index");
             }
 
